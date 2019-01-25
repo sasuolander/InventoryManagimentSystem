@@ -1,0 +1,25 @@
+Eureka discovery system
+
+microservice
+
+registeration and logging
+
+user managiment
+CRUD
+
+
+product managiment
+CRUD
+
+
+product life cycle Update
+storing -dipathing- 
+
+
+
+Frondent pages :
+
+Current Inventory
+Incoming Purchases
+Orders to Ship
+Reports
