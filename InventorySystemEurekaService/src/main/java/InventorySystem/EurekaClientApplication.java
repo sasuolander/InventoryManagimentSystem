@@ -1,15 +1,13 @@
-package hello;
+package InventorySystem;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.PatchMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -34,9 +32,9 @@ class ServiceInstanceRestController {
             @PathVariable String applicationName) {
         return this.discoveryClient.getInstances(applicationName);
     }
-    @RequestMapping(value = "/hi")
+    @RequestMapping(value = "/test", produces ="application/json")
+    @ResponseBody
     public String hellow(){
-    return "Hi";
+    return JSONObject.quote("Server is running");
     }
-
 }
