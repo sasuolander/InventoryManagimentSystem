@@ -1,8 +1,9 @@
 package InventorySystem.Object;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Order {
@@ -12,6 +13,9 @@ public class Order {
     private final String title;
     private  final String first;
     private final  String last;
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private final List<Product>ProductList= new ArrayList<>();
+
     private final  Long product_id;
     private final int number_shipped;
     private final int order_date;
