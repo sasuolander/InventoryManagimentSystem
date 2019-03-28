@@ -2,5 +2,9 @@ package InventorySystem.Repository;
 
 import InventorySystem.Object.Purchaces;
 
- interface PurchasesRepository extends MyBaseRepository<Purchaces, Long>  {
+import org.springframework.stereotype.Repository;
+
+@Repository
+interface PurchasesRepository extends MyBaseRepository<Purchaces, Long>  {
+    //Purchaces findById(ID);
 }

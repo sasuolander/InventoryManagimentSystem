@@ -1,7 +1,6 @@
 package InventorySystem.Object;
 
 import javax.persistence.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,8 +10,8 @@ public class Order {
     @GeneratedValue
     private final Long order_id;
     private final String title;
-    private  final String first;
-    private final  String last;
+    private  final String firstName;
+    private final  String lastName;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Product>ProductList= new ArrayList<>();
 
@@ -23,8 +22,8 @@ public class Order {
     private Order(Builder builder) {
         order_id = builder.order_id;
         title = builder.title;
-        first = builder.first;
-        last = builder.last;
+        firstName = builder.first;
+        lastName = builder.last;
         product_id = builder.product_id;
         number_shipped = builder.number_shipped;
         order_date = builder.order_date;

@@ -1,5 +1,9 @@
 package InventorySystem;
 
+import InventorySystem.Object.Order;
+import InventorySystem.Object.Product;
+import InventorySystem.Object.Purchaces;
+import InventorySystem.Object.Suppliers;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +14,8 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
-
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //@EnableEurekaServer
@@ -25,7 +30,24 @@ public class EurekaClientApplication {
     @Bean
     public CommandLineRunner initSituation(){
         return(arg)->{
-
+            ArrayList<Order>listOrder=new ArrayList<>();
+            ArrayList<Product>listProduct=new ArrayList<>();
+            ArrayList<Purchaces>listPurchase=new ArrayList<>();
+            ArrayList<Suppliers>listSupplier=new ArrayList<>();
+            Suppliers tim = new Suppliers();
+                    tim.setSupplier("44");
+            Collections.addAll(listOrder,
+                    new Order.Builder(1L).setFirst("tom").build()
+            );
+            Collections.addAll(listProduct,
+                    new Product.Builder(1L).setProduct_label("test").build()
+                    );
+            Collections.addAll(listPurchase,
+new Purchaces.Builder().setNumber_received(10).build()
+                    );
+            Collections.addAll(listSupplier,
+tim
+                    );
         };
     }
 }
