@@ -9,53 +9,53 @@ import java.util.Date;
 public class Purchaces {
     @Id
     @GeneratedValue
-    private final Long purchases_id;
-    private final Long supplier_id;
-    private final Long product_id;
-    private final int number_received;
-    private final Date purchase_date;
+    private final Long purchasesId;
+    private final Long supplierId;
+    private final Long productId;
+    private final int numberReceived;
+    private final Date purchaseDate;
 
     private Purchaces(Builder builder) {
-        purchases_id = builder.purchases_id;
-        supplier_id = builder.supplier_id;
-        product_id = builder.product_id;
-        number_received = builder.number_received;
-        purchase_date = builder.purchase_date;
+        purchasesId = builder.purchasesId;
+        supplierId = builder.supplierId;
+        productId = builder.productId;
+        numberReceived = builder.numberReceived;
+        purchaseDate = builder.purchaseDate;
     }
 
 
     public static final class Builder {
-        private Long purchases_id;
-        private Long supplier_id;
-        private Long product_id;
-        private int number_received;
-        private Date purchase_date;
+        private Long purchasesId;
+        private Long supplierId;
+        private Long productId;
+        private int numberReceived;
+        private Date purchaseDate;
 
         public Builder() {
         }
 
-        public Builder setPurchases_id(Long val) {
-            purchases_id = val;
+        public Builder setPurchasesId(Long val) {
+            purchasesId = val;
             return this;
         }
 
-        public Builder setSupplier_id(Long val) {
-            supplier_id = val;
+        public Builder setSupplierId(Long val) {
+            supplierId = val;
             return this;
         }
 
-        public Builder setProduct_id(Long val) {
-            product_id = val;
+        public Builder setProductId(Long val) {
+            productId = val;
             return this;
         }
 
-        public Builder setNumber_received(int val) {
-            number_received = val;
+        public Builder setNumberReceived(int val) {
+            numberReceived = val;
             return this;
         }
 
-        public Builder setPurchase_date(Date val) {
-            purchase_date = val;
+        public Builder setPurchaseDate(Date val) {
+            purchaseDate = val;
             return this;
         }
 

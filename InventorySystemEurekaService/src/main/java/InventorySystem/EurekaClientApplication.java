@@ -14,6 +14,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -28,26 +29,26 @@ public class EurekaClientApplication {
     }
 
     @Bean
-    public CommandLineRunner initSituation(){
-        return(arg)->{
-            ArrayList<Order>listOrder=new ArrayList<>();
-            ArrayList<Product>listProduct=new ArrayList<>();
-            ArrayList<Purchaces>listPurchase=new ArrayList<>();
-            ArrayList<Suppliers>listSupplier=new ArrayList<>();
+    public CommandLineRunner initSituation() {
+        return (arg) -> {
+            ArrayList<Order> listOrder = new ArrayList<>();
+            ArrayList<Product> listProduct = new ArrayList<>();
+            ArrayList<Purchaces> listPurchase = new ArrayList<>();
+            ArrayList<Suppliers> listSupplier = new ArrayList<>();
             Suppliers tim = new Suppliers();
-                    tim.setSupplier("44");
+            tim.setSupplier("44");
             Collections.addAll(listOrder,
                     new Order.Builder(1L).setFirst("tom").build()
             );
             Collections.addAll(listProduct,
-                    new Product.Builder(1L).setProduct_label("test").build()
-                    );
+                    new Product.Builder(1L).setProductLabel("test").build()
+            );
             Collections.addAll(listPurchase,
-new Purchaces.Builder().setNumber_received(10).build()
-                    );
+                    new Purchaces.Builder().setNumberReceived(10).build()
+            );
             Collections.addAll(listSupplier,
-tim
-                    );
+                    tim
+            );
         };
     }
 }
@@ -63,9 +64,10 @@ class ServiceInstanceRestController {
             @PathVariable String applicationName) {
         return this.discoveryClient.getInstances(applicationName);
     }
-    @RequestMapping(value = "/test", produces ="application/json")
+
+    @RequestMapping(value = "/test", produces = "application/json")
     @ResponseBody
-    public String hellow(){
-    return JSONObject.quote("Server is running");
+    public String hellow() {
+        return JSONObject.quote("Server is running");
     }
 }

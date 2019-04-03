@@ -2,44 +2,45 @@ package InventorySystem.Object;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Order {
     @Id
     @GeneratedValue
-    private final Long order_id;
+    private final Long orderId;
     private final String title;
     private  final String firstName;
     private final  String lastName;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private final List<Product>ProductList= new ArrayList<>();
+    private final List<Product>productList= new ArrayList<>();
 
-    private final  Long product_id;
-    private final int number_shipped;
-    private final int order_date;
+    private final  Long productId;
+    private final int numberShipped;
+    private final Date orderDate;
 
     private Order(Builder builder) {
-        order_id = builder.order_id;
+        orderId = builder.orderId;
         title = builder.title;
         firstName = builder.first;
         lastName = builder.last;
-        product_id = builder.product_id;
-        number_shipped = builder.number_shipped;
-        order_date = builder.order_date;
+        productId = builder.productId;
+        numberShipped = builder.numberShipped;
+        orderDate = builder.orderDate;
     }
 
     public static final class Builder {
-        private final Long order_id;
+        private final Long orderId;
         private String title;
         private String first;
         private String last;
-        private Long product_id;
-        private int number_shipped;
-        private int order_date;
+        private Long productId;
+        private int numberShipped;
+        private Date orderDate;
 
-        public Builder(Long order_id) {
-            this.order_id = order_id;
+        public Builder(Long orderId ) {
+            this.orderId = orderId;
         }
 
         public Builder setTitle(String val) {
@@ -57,18 +58,18 @@ public class Order {
             return this;
         }
 
-        public Builder setProduct_id(Long val) {
-            product_id = val;
+        public Builder setProductId(Long val) {
+            productId = val;
             return this;
         }
 
-        public Builder setNumber_shipped(int val) {
-            number_shipped = val;
+        public Builder setNumberShipped(int val) {
+            numberShipped = val;
             return this;
         }
 
-        public Builder setOrder_date(int val) {
-            order_date = val;
+        public Builder setOrderDate(Date val) {
+            orderDate = val;
             return this;
         }
 

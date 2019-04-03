@@ -8,15 +8,15 @@ import javax.persistence.Id;
 public class Suppliers {
     @Id
     @GeneratedValue
-    private Long supplier_id;
+    private Long supplierId;
     private String supplier;
 
-    public Long getSupplier_id() {
-        return supplier_id;
+    public Long getSupplierId() {
+        return supplierId;
     }
 
-    public void setSupplier_id(Long supplier_id) {
-        this.supplier_id = supplier_id;
+    public void setSupplierId(Long supplierId) {
+        this.supplierId = supplierId;
     }
 
     public String getSupplier() {
@@ -24,9 +24,4 @@ public class Suppliers {
     }
 
     public void setSupplier(String supplier) { this.supplier = supplier; }
-
-
-
-
-
 }

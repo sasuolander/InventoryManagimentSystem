@@ -1,6 +1,5 @@
 package InventorySystem.Object;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -10,65 +9,65 @@ public class Product {
 
     @Id
     @GeneratedValue
-    private final Long product_id;
-    private final int product_number;
-    private final int part_number;
-    private final String product_label;
-    private final int starting_inventory;
-    private final int inventory_on_hand;
-    private final int minimum_required;
+    private final Long productId;
+    private final int productNumber;
+    private final int partNumber;
+    private final String productLabel;
+    private final int startingInventory;
+    private final int inventoryOnHand;
+    private final int minimumRequired;
 
     private Product(Builder builder) {
-        product_id = builder.product_id;
-        product_number = builder.product_number;
-        part_number = builder.part_number;
-        product_label = builder.product_label;
-        starting_inventory = builder.starting_inventory;
-        inventory_on_hand = builder.inventory_on_hand;
-        minimum_required = builder.minimum_required;
+        productId = builder.productId;
+        productNumber = builder.productNumber;
+        partNumber = builder.partNumber;
+        productLabel = builder.productLabel;
+        startingInventory = builder.startingInventory;
+        inventoryOnHand = builder.inventoryOnHand;
+        minimumRequired = builder.minimumRequired;
     }
 
 
     public static final class Builder {
-        private final Long product_id;
-        private int product_number;
-        private int part_number;
-        private String product_label;
-        private int starting_inventory;
-        private int inventory_on_hand;
-        private int minimum_required;
+        private final Long productId;
+        private int productNumber;
+        private int partNumber;
+        private String productLabel;
+        private int startingInventory;
+        private int inventoryOnHand;
+        private int minimumRequired;
 
-        public Builder(Long product_id) {
-            this.product_id = product_id;
+        public Builder(Long productId) {
+            this.productId = productId;
         }
 
-        public Builder setProduct_number(int val) {
-            product_number = val;
+        public Builder setProductNumber(int val) {
+            productNumber = val;
             return this;
         }
 
-        public Builder setPart_number(int val) {
-            part_number = val;
+        public Builder setPartNumber(int val) {
+            partNumber = val;
             return this;
         }
 
-        public Builder setProduct_label(String val) {
-            product_label = val;
+        public Builder setProductLabel(String val) {
+            productLabel = val;
             return this;
         }
 
-        public Builder setStarting_inventory(int val) {
-            starting_inventory = val;
+        public Builder setStartingInventory(int val) {
+            startingInventory = val;
             return this;
         }
 
-        public Builder setInventory_on_hand(int val) {
-            inventory_on_hand = val;
+        public Builder setInventoryOnHand(int val) {
+            inventoryOnHand = val;
             return this;
         }
 
-        public Builder setMinimum_required(int val) {
-            minimum_required = val;
+        public Builder setMinimumRequired(int val) {
+            minimumRequired = val;
             return this;
         }
 
