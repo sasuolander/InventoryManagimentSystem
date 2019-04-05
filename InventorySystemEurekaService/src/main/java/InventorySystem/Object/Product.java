@@ -1,8 +1,8 @@
 package InventorySystem.Object;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Product {
@@ -16,6 +16,9 @@ public class Product {
     private final int startingInventory;
     private final int inventoryOnHand;
     private final int minimumRequired;
+    @ManyToOne
+    @JoinColumn
+    private  Order productList;
 
     private Product(Builder builder) {
         productId = builder.productId;
@@ -74,5 +77,33 @@ public class Product {
         public Product build() {
             return new Product(this);
         }
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public int getProductNumber() {
+        return productNumber;
+    }
+
+    public int getPartNumber() {
+        return partNumber;
+    }
+
+    public String getProductLabel() {
+        return productLabel;
+    }
+
+    public int getStartingInventory() {
+        return startingInventory;
+    }
+
+    public int getInventoryOnHand() {
+        return inventoryOnHand;
+    }
+
+    public int getMinimumRequired() {
+        return minimumRequired;
     }
 }

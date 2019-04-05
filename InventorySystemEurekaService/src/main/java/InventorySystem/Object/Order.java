@@ -16,7 +16,7 @@ public class Order {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Product>productList= new ArrayList<>();
 
-    private final  Long productId;
+    //https://stackoverflow.com/questions/27987068/spring-boot-hibernate-syntax-error-in-sql-statement
     private final int numberShipped;
     private final Date orderDate;
 
@@ -25,7 +25,6 @@ public class Order {
         title = builder.title;
         firstName = builder.first;
         lastName = builder.last;
-        productId = builder.productId;
         numberShipped = builder.numberShipped;
         orderDate = builder.orderDate;
     }
@@ -35,7 +34,6 @@ public class Order {
         private String title;
         private String first;
         private String last;
-        private Long productId;
         private int numberShipped;
         private Date orderDate;
 
@@ -58,11 +56,6 @@ public class Order {
             return this;
         }
 
-        public Builder setProductId(Long val) {
-            productId = val;
-            return this;
-        }
-
         public Builder setNumberShipped(int val) {
             numberShipped = val;
             return this;
@@ -76,5 +69,35 @@ public class Order {
         public Order build() {
             return new Order(this);
         }
+    }
+
+
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
+
+
+    public int getNumberShipped() {
+        return numberShipped;
+    }
+
+    public Date getOrderDate() {
+        return orderDate;
     }
 }

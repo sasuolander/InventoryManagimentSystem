@@ -4,6 +4,10 @@ import InventorySystem.Object.Order;
 import InventorySystem.Object.Product;
 import InventorySystem.Object.Purchaces;
 import InventorySystem.Object.Suppliers;
+import InventorySystem.Repository.OrderRepository;
+import InventorySystem.Repository.ProductRepository;
+import InventorySystem.Repository.PurchasesRepository;
+import InventorySystem.Repository.SuppliersRepository;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -23,6 +27,18 @@ import java.util.List;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaClientApplication {
+
+    private final OrderRepository orderRepository;
+    private final ProductRepository productRepository;
+    private final PurchasesRepository purchasesRepository;
+    private final SuppliersRepository suppliersRepository;
+
+    public EurekaClientApplication(OrderRepository orderRepository, ProductRepository productRepository, PurchasesRepository purchasesRepository, SuppliersRepository suppliersRepository) {
+        this.orderRepository = orderRepository;
+        this.productRepository = productRepository;
+        this.purchasesRepository = purchasesRepository;
+        this.suppliersRepository = suppliersRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientApplication.class, args);
@@ -49,6 +65,9 @@ public class EurekaClientApplication {
             Collections.addAll(listSupplier,
                     tim
             );
+
+            // orderRepository.saveAll(listOrder);
+
         };
     }
 }

@@ -15,6 +15,7 @@ public class Purchaces {
     private final int numberReceived;
     private final Date purchaseDate;
 
+
     private Purchaces(Builder builder) {
         purchasesId = builder.purchasesId;
         supplierId = builder.supplierId;
@@ -22,6 +23,8 @@ public class Purchaces {
         numberReceived = builder.numberReceived;
         purchaseDate = builder.purchaseDate;
     }
+
+
 
 
     public static final class Builder {
@@ -62,5 +65,25 @@ public class Purchaces {
         public Purchaces build() {
             return new Purchaces(this);
         }
+    }
+
+    public Long getPurchasesId() {
+        return purchasesId;
+    }
+
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public int getNumberReceived() {
+        return numberReceived;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
     }
 }
