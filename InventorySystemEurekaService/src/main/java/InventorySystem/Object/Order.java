@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @Entity
+@Table(name = "order_table") //Order word is reserved in sql
 public class Order {
     @Id
     @GeneratedValue
@@ -23,8 +24,8 @@ public class Order {
     private Order(Builder builder) {
         orderId = builder.orderId;
         title = builder.title;
-        firstName = builder.first;
-        lastName = builder.last;
+        firstName = builder.firstName;
+        lastName = builder.lastName;
         numberShipped = builder.numberShipped;
         orderDate = builder.orderDate;
     }
@@ -32,8 +33,8 @@ public class Order {
     public static final class Builder {
         private final Long orderId;
         private String title;
-        private String first;
-        private String last;
+        private String firstName;
+        private String lastName;
         private int numberShipped;
         private Date orderDate;
 
@@ -46,13 +47,13 @@ public class Order {
             return this;
         }
 
-        public Builder setFirst(String val) {
-            first = val;
+        public Builder setFirstName(String val) {
+            firstName = val;
             return this;
         }
 
-        public Builder setLast(String val) {
-            last = val;
+        public Builder setLastName(String val) {
+            lastName = val;
             return this;
         }
 

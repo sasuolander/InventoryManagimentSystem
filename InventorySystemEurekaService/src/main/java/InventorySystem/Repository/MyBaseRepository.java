@@ -13,7 +13,7 @@ import java.util.Optional;
 // JPA KeyWord system, findBy,countBy,deleteBy,removeBy,
 @NoRepositoryBean
 interface MyBaseRepository <T, ID extends Serializable> extends Repository<T, ID> {
-    Optional<T> findById(ID id);
+    T findById(ID id);
     Optional<T> findAll();
 
     default <S extends T> S save(S entity) { return null; }

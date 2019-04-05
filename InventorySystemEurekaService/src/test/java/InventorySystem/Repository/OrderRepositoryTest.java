@@ -1,5 +1,6 @@
 package InventorySystem.Repository;
 
+import InventorySystem.Object.Order;
 import org.aspectj.lang.annotation.Before;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -29,6 +30,14 @@ public class OrderRepositoryTest {
 
     }
 
+
+    @Test
+    public void saveOrder(){
+        Order order = new Order.Builder(1L).setFirstName("tim").setLastName("tim").build();
+        repository.save(order);
+
+
+    }
 
     @Test
     public void findByFirstNameTest(){

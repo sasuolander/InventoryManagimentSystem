@@ -7,9 +7,12 @@ import java.util.Date;
 // Custom way to make query
 @Repository
 public interface OrderRepository extends MyBaseRepository<Order, Long> {
-    //Order findById(ID id);
+
+    @Override
+    Order findById(Long id);
+
     Order findByTitle(String title);
-    Order findByFirstName(String firtName);
+    Order findByFirstName(String firstName);
     Order findByLastName(String lastName);
     Order findByNumberShipped(int shipped);
     Order findByOrderDate(Date date);

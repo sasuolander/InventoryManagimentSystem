@@ -54,7 +54,7 @@ public class EurekaClientApplication {
             Suppliers tim = new Suppliers();
             tim.setSupplier("44");
             Collections.addAll(listOrder,
-                    new Order.Builder(1L).setFirst("tom").build()
+                    new Order.Builder(1L).setFirstName("tom").build()
             );
             Collections.addAll(listProduct,
                     new Product.Builder(1L).setProductLabel("test").build()
@@ -66,7 +66,16 @@ public class EurekaClientApplication {
                     tim
             );
 
-            // orderRepository.saveAll(listOrder);
+            orderRepository.saveAll(listOrder);
+            orderRepository.save( new Order.Builder(1L).setFirstName("tom").build());
+            Order testi = orderRepository.findById(1L);
+            try{
+                System.out.print("testi object ");
+                System.out.print(testi);
+            }catch (Exception e){
+                System.out.println("errol");
+            }
+
 
         };
     }
@@ -86,7 +95,7 @@ class ServiceInstanceRestController {
 
     @RequestMapping(value = "/test", produces = "application/json")
     @ResponseBody
-    public String hellow() {
+    public String hello() {
         return JSONObject.quote("Server is running");
     }
 }
