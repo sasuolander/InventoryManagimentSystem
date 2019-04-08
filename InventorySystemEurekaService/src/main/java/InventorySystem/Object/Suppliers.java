@@ -1,4 +1,4 @@
-package InventorySystem.Object;
+package inventorysystem.object;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,8 @@ public class Suppliers {
     private Long supplierId;
     private String supplier;
 
-
+    //Default constructor
+    public Suppliers(){}
 
     public Long getSupplierId() {
         return supplierId;

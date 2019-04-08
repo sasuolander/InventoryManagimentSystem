@@ -1,14 +1,13 @@
-package InventorySystem;
+package inventorysystem;
 
-import InventorySystem.Object.Order;
-import InventorySystem.Object.Product;
-import InventorySystem.Object.Purchaces;
-import InventorySystem.Object.Suppliers;
-import InventorySystem.Repository.OrderRepository;
-import InventorySystem.Repository.ProductRepository;
-import InventorySystem.Repository.PurchasesRepository;
-import InventorySystem.Repository.SuppliersRepository;
+import inventorysystem.object.Order;
+import inventorysystem.repository.OrderRepository;
+import inventorysystem.repository.ProductRepository;
+import inventorysystem.repository.PurchasesRepository;
+import inventorysystem.repository.SuppliersRepository;
 import org.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,9 +18,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+
 
 //@EnableEurekaServer
 @EnableDiscoveryClient
@@ -29,15 +27,23 @@ import java.util.List;
 public class EurekaClientApplication {
 
     private final OrderRepository orderRepository;
-    private final ProductRepository productRepository;
-    private final PurchasesRepository purchasesRepository;
-    private final SuppliersRepository suppliersRepository;
+    //private final ProductRepository productRepository;
+    //private final PurchasesRepository purchasesRepository;
+    //private final SuppliersRepository suppliersRepository;
 
-    public EurekaClientApplication(OrderRepository orderRepository, ProductRepository productRepository, PurchasesRepository purchasesRepository, SuppliersRepository suppliersRepository) {
+    private final Logger logger = LoggerFactory.getLogger(EurekaClientApplication.class);
+
+    public EurekaClientApplication(OrderRepository orderRepository,
+                                   ProductRepository productRepository,
+                                   PurchasesRepository purchasesRepository,
+                                   SuppliersRepository suppliersRepository
+    )
+
+    {
         this.orderRepository = orderRepository;
-        this.productRepository = productRepository;
-        this.purchasesRepository = purchasesRepository;
-        this.suppliersRepository = suppliersRepository;
+        //this.productRepository = productRepository;
+        //this.purchasesRepository = purchasesRepository;
+        //this.suppliersRepository = suppliersRepository;
     }
 
     public static void main(String[] args) {
@@ -47,7 +53,14 @@ public class EurekaClientApplication {
     @Bean
     public CommandLineRunner initSituation() {
         return (arg) -> {
-            ArrayList<Order> listOrder = new ArrayList<>();
+            logger.info("start");
+           Order tes= new Order.Builder(1L).setFirstName("tom").build();
+           logger.info(tes.getFirstName());
+           logger.info(orderRepository.toString());
+            orderRepository.saveAndFlush(tes);
+
+
+           /* ArrayList<Order> listOrder = new ArrayList<>();
             ArrayList<Product> listProduct = new ArrayList<>();
             ArrayList<Purchaces> listPurchase = new ArrayList<>();
             ArrayList<Suppliers> listSupplier = new ArrayList<>();
@@ -67,14 +80,14 @@ public class EurekaClientApplication {
             );
 
             orderRepository.saveAll(listOrder);
-            orderRepository.save( new Order.Builder(1L).setFirstName("tom").build());
+
             Order testi = orderRepository.findById(1L);
             try{
                 System.out.print("testi object ");
                 System.out.print(testi);
             }catch (Exception e){
                 System.out.println("errol");
-            }
+            }*/
 
 
         };

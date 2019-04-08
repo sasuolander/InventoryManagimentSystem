@@ -1,4 +1,4 @@
-package InventorySystem.Repository;
+package inventorysystem.repository;
 
 import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.data.repository.Repository;
@@ -13,10 +13,11 @@ import java.util.Optional;
 // JPA KeyWord system, findBy,countBy,deleteBy,removeBy,
 @NoRepositoryBean
 interface MyBaseRepository <T, ID extends Serializable> extends Repository<T, ID> {
-    T findById(ID id);
+    Optional<T> findById(ID id);
     Optional<T> findAll();
 
-    default <S extends T> S save(S entity) { return null; }
-    default <S extends T> List<S> saveAll(Iterable<S> entities){return null;}
-    default void deleteById(ID id){}
+     <S extends T> S save(S entity);
+     <S extends T> S saveAndFlush(S entity);
+     <S extends T> List<S> saveAll(Iterable<S> entities);
+     void deleteById(ID id);
 }

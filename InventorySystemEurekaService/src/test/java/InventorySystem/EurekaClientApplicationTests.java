@@ -1,8 +1,9 @@
-package InventorySystem;
+package inventorysystem;
 
 import static org.assertj.core.api.BDDAssertions.*;
 
 
+import inventorysystem.repositorytest.OrderRepositoryTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,11 +28,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 //test service from Spring boot by pivotal
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = EurekaClientApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {EurekaClientApplication.class, OrderRepositoryTest.class}
+        , webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 public class EurekaClientApplicationTests {
-
-
     static ConfigurableApplicationContext eurekaServer;
 
     @BeforeClass

@@ -1,5 +1,5 @@
-package InventorySystem.Repository;
-import InventorySystem.Object.Order;
+package inventorysystem.repository;
+import inventorysystem.object.Order;
 import org.springframework.stereotype.Repository;
 import java.util.Date;
 
@@ -7,9 +7,6 @@ import java.util.Date;
 // Custom way to make query
 @Repository
 public interface OrderRepository extends MyBaseRepository<Order, Long> {
-
-    @Override
-    Order findById(Long id);
 
     Order findByTitle(String title);
     Order findByFirstName(String firstName);

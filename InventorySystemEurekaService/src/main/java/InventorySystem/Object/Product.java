@@ -1,8 +1,6 @@
-package InventorySystem.Object;
+package inventorysystem.object;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class Product {

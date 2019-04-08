@@ -1,4 +1,4 @@
-package InventorySystem.Service;
+package inventorysystem.Service;
 
 import org.springframework.stereotype.Service;
 

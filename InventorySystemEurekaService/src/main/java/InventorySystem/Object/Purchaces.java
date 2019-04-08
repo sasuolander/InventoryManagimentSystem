@@ -1,4 +1,4 @@
-package InventorySystem.Object;
+package inventorysystem.object;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +14,7 @@ public class Purchaces {
     private final Long productId;
     private final int numberReceived;
     private final Date purchaseDate;
+
 
 
     private Purchaces(Builder builder) {

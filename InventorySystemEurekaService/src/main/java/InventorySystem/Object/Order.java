@@ -1,4 +1,7 @@
-package InventorySystem.Object;
+package inventorysystem.object;
+
+import lombok.Builder;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,17 +13,26 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue
-    private final Long orderId;
-    private final String title;
-    private  final String firstName;
-    private final  String lastName;
+    private Long orderId;
+    @Nullable
+    private String title;
+    @Nullable
+    private String firstName;
+    @Nullable
+    private  String lastName;
+    @Nullable
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     private final List<Product>productList= new ArrayList<>();
 
     //https://stackoverflow.com/questions/27987068/spring-boot-hibernate-syntax-error-in-sql-statement
-    private final int numberShipped;
-    private final Date orderDate;
+    @Nullable
+    private  int numberShipped;
+    @Nullable
+    private Date orderDate;
 
+
+    //Default constructor
+    public Order(){}
     private Order(Builder builder) {
         orderId = builder.orderId;
         title = builder.title;
@@ -101,4 +113,6 @@ public class Order {
     public Date getOrderDate() {
         return orderDate;
     }
+
+
 }
