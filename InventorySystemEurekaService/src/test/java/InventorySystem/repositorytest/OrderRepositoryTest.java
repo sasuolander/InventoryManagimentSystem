@@ -33,7 +33,7 @@ public class OrderRepositoryTest {
     final String firstName="Tim";
     final String lastName="Tom";
     final String title="More item";
-
+    Order order = new Order.Builder(1L).setFirstName(firstName).setLastName(lastName).setTitle(title).build();
     @BeforeClass
     public static void populateDatabase(){
 
@@ -42,30 +42,40 @@ public class OrderRepositoryTest {
     @AfterClass
     public static void emptyDatabase(){
 
+
     }
 
 
     @Test
-    public void saveOrder(){
-       Order order = new Order.Builder(1L).setFirstName("tim").setLastName("tim").build();
+    public void saveOrderAndThenFindById(){
+
         repository.save(order);
         Optional<Order> order1 = repository.findById(1L);
         //logger.info("wait",order1.toString());
         assertThat(order1).isNotNull();
-        //assertEquals("tim",order1.getFirstName());
+        assertEquals(order.getOrderId(),order1.get().getOrderId());
     }
 
-   /* @Test
+    @Test
     public void findByFirstNameTest(){
-        repository.findByFirstName(firstName);
+        repository.save(order);
+        Order order1= repository.findByFirstName(firstName);
+        assertThat(order1).isNotNull();
+        assertEquals(firstName,order1.getFirstName());
     }
     @Test
     public void findByLastNameTest(){
-        repository.findByLastName(lastName);
+        repository.save(order);
+        Order order1= repository.findByLastName(lastName);
+        assertThat(order1).isNotNull();
+        assertEquals(lastName,order1.getLastName());
     }
     @Test
     public void findByTitleTest(){
-        repository.findByTitle(title);
-    }*/
+        repository.save(order);
+        Order order1= repository.findByTitle(title);
+        assertThat(order1).isNotNull();
+        assertEquals(title,order1.getTitle());
+    }
 
 }
