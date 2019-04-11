@@ -11,8 +11,10 @@ public class Suppliers {
     private Long supplierId;
     private String supplier;
 
-    //Default constructor
-    public Suppliers(){}
+
+    public Suppliers(){
+        //Default constructor for hibernate
+    }
 
     public Long getSupplierId() {
         return supplierId;

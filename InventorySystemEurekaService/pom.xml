@@ -66,11 +66,11 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-		<dependency>
+		<!-- not working-->
+		<!--<dependency>
 		    <groupId>io.pivotal.spring.cloud</groupId>
 		    <artifactId>spring-cloud-services-starter-config-client</artifactId>
-	    </dependency>
+	    </dependency>-->
 
 		<!-- https://mvnrepository.com/artifact/antlr/antlr -->
 		<dependency>

@@ -7,16 +7,21 @@ public class Product {
 
     @Id
     @GeneratedValue
-    private final Long productId;
-    private final int productNumber;
-    private final int partNumber;
-    private final String productLabel;
-    private final int startingInventory;
-    private final int inventoryOnHand;
-    private final int minimumRequired;
+    private Long productId;
+    private  int productNumber;
+    private  int partNumber;
+    private String productLabel;
+    private int startingInventory;
+    private int inventoryOnHand;
+    private  int minimumRequired;
     @ManyToOne
     @JoinColumn
     private  Order productList;
+
+    //Default constructor
+    public Product(){
+        //Default constructor for hibernate
+    }
 
     private Product(Builder builder) {
         productId = builder.productId;

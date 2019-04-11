@@ -32,7 +32,9 @@ public class Order {
 
 
     //Default constructor
-    public Order(){}
+    public Order(){
+        //Default constructor for hibernate
+    }
     private Order(Builder builder) {
         orderId = builder.orderId;
         title = builder.title;

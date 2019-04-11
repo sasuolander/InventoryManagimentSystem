@@ -6,27 +6,27 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Purchaces {
+public class Purchases {
     @Id
     @GeneratedValue
-    private final Long purchasesId;
-    private final Long supplierId;
-    private final Long productId;
-    private final int numberReceived;
-    private final Date purchaseDate;
+    private  Long purchasesId;
+    private  Long supplierId;
+    private  Long productId;
+    private  int numberReceived;
+    private  Date purchaseDate;
 
+    //Default constructor
+    public Purchases(){
+        //Default constructor for hibernate
+    }
 
-
-    private Purchaces(Builder builder) {
+    private Purchases(Builder builder) {
         purchasesId = builder.purchasesId;
         supplierId = builder.supplierId;
         productId = builder.productId;
         numberReceived = builder.numberReceived;
         purchaseDate = builder.purchaseDate;
     }
-
-
-
 
     public static final class Builder {
         private Long purchasesId;
@@ -63,9 +63,7 @@ public class Purchaces {
             return this;
         }
 
-        public Purchaces build() {
-            return new Purchaces(this);
-        }
+        public Purchases build() { return new Purchases(this); }
     }
 
     public Long getPurchasesId() {

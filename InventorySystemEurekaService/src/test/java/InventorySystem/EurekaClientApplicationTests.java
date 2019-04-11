@@ -59,10 +59,10 @@ public class EurekaClientApplicationTests {
         Thread.sleep(3000);
 
         ResponseEntity<String> response = this.testRestTemplate.getForEntity("http://localhost:" +
-                this.port + "/service-instances/inventory system", String.class);
+                this.port + "/service-instances/inventory-system", String.class);
 
         then(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        then(response.getBody()).contains("inventory system");
+        then(response.getBody()).contains("inventory-system");
         //then(response.getBody()).contains("A-BOOTIFUL-CLIENT ");
     }
 
