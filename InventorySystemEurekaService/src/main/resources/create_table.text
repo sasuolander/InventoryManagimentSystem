@@ -1,0 +1,31 @@
+CREATE TABLE `products` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `ProductName` varchar(255) DEFAULT NULL,
+  `PartNumber` varchar(255) DEFAULT NULL,
+  `ProductLabel` varchar(255) DEFAULT NULL,
+  `StartingInventory` int(11) DEFAULT NULL,
+  `InventoryReceived` int(11) DEFAULT NULL,
+  `InventoryShipped` int(11) DEFAULT NULL,
+  `InventoryOnHand` int(11) DEFAULT NULL,
+  `MinimumRequired` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `purchases` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `SupplierId` int(11) unsigned NOT NULL,
+  `ProductId` int(11) unsigned NOT NULL,
+  `NumberReceived` int(11) NOT NULL,
+  `PurchaseDate` date NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `purchase_product_fk` (`ProductId`),
+  KEY `purchase_supplier_fk` (`SupplierId`),
+  CONSTRAINT `purchase_product_fk` FOREIGN KEY (`ProductId`) REFERENCES `products` (`id`),
+  CONSTRAINT `purchase_supplier_fk` FOREIGN KEY (`SupplierId`) REFERENCES `suppliers` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `suppliers` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `supplier` varchar(255) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
