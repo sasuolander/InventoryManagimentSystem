@@ -30,10 +30,10 @@ public class OrderService implements BasicService<Order>{
         orderRepository.deleteById(id);
         return orderRepository.findById(id).isPresent();
     }
-
+    //https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
     public Optional<Order> update(Order order) {
-        Order OldOrder = orderRepository.findById(order.getOrderId()).get();
-        orderRepository.save(OldOrder);
+        //Order OldOrder = orderRepository.findById(order.getOrderId()).ifPresent(order1 -> return order);
+        //orderRepository.save(OldOrder);
         return Optional.empty();
     }
 }

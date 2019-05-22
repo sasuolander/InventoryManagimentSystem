@@ -54,8 +54,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
-
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-rest</artifactId>
@@ -71,6 +69,9 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+        <!-- https://mvnrepository.com/artifact/io.springfox/springfox-data-rest -->
+
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -132,7 +133,7 @@
         </dependency>
 
 
-    </dependencies>
+	</dependencies>
 
 	<dependencyManagement>
 		<dependencies>

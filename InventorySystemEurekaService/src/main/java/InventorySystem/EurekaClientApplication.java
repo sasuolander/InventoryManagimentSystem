@@ -18,11 +18,12 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.*;
 
+
+
 import java.util.List;
 
 
 //@EnableEurekaServer
-@EnableDiscoveryClient
 @SpringBootApplication
 public class EurekaClientApplication {
 
