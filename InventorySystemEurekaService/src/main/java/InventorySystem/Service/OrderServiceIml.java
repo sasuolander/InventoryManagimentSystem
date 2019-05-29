@@ -8,17 +8,17 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
-public class OrderService implements BasicService<Order>{
-    @Autowired
+public class OrderServiceIml implements BasicService<Order>{
+
     private final OrderRepository orderRepository;
 
-    public OrderService(OrderRepository orderRepository){
+    @Autowired
+    public OrderServiceIml(OrderRepository orderRepository){
         this.orderRepository =  orderRepository;
     }
 
     public Optional<Order> findById(Long id) {
-        Optional<Order>order= orderRepository.findById(id);
-        return  order;
+        return  orderRepository.findById(id);
     }
 
     public <S extends Order> S save(S order) {

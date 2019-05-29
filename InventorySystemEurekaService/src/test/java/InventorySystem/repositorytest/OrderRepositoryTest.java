@@ -78,4 +78,12 @@ public class OrderRepositoryTest {
         assertEquals(title,order1.getTitle());
     }
 
+     @Test
+    public void deleteById(){
+        repository.deleteById(1L);
+         Optional<Order> order1 = repository.findById(1L);
+         assertThat(order1).isEmpty();
+
+     }
+
 }
