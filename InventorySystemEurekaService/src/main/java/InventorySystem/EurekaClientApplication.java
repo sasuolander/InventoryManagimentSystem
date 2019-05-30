@@ -55,41 +55,10 @@ public class EurekaClientApplication {
     public CommandLineRunner initSituation() {
         return (arg) -> {
             logger.info("start");
-           Order tes= new Order.Builder(1L).setFirstName("tom").build();
-           logger.info(tes.getFirstName());
-           logger.info(orderRepository.toString());
-            orderRepository.saveAndFlush(tes);
-
-
-           /* ArrayList<Order> listOrder = new ArrayList<>();
-            ArrayList<Product> listProduct = new ArrayList<>();
-            ArrayList<Purchaces> listPurchase = new ArrayList<>();
-            ArrayList<Suppliers> listSupplier = new ArrayList<>();
-            Suppliers tim = new Suppliers();
-            tim.setSupplier("44");
-            Collections.addAll(listOrder,
-                    new Order.Builder(1L).setFirstName("tom").build()
-            );
-            Collections.addAll(listProduct,
-                    new Product.Builder(1L).setProductLabel("test").build()
-            );
-            Collections.addAll(listPurchase,
-                    new Purchaces.Builder().setNumberReceived(10).build()
-            );
-            Collections.addAll(listSupplier,
-                    tim
-            );
-
-            orderRepository.saveAll(listOrder);
-
-            Order testi = orderRepository.findById(1L);
-            try{
-                System.out.print("testi object ");
-                System.out.print(testi);
-            }catch (Exception e){
-                System.out.println("errol");
-            }*/
-
+          // Order tes= new Order.Builder(1L).setFirstName("tom").build();
+           //logger.info(tes.getFirstName());
+           //logger.info(orderRepository.toString());
+          //  orderRepository.saveAndFlush(tes);
 
         };
     }

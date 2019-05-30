@@ -14,7 +14,7 @@ import java.util.Optional;
 @NoRepositoryBean
 interface MyBaseRepository <T, ID extends Serializable> extends Repository<T, ID> {
     Optional<T> findById(ID id);
-    Optional<T> findAll();
+    Iterable<T> findAll();
 
      <S extends T> S save(S entity);
      <S extends T> S saveAndFlush(S entity);

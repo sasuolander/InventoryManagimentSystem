@@ -21,9 +21,13 @@ public class OrderControllerIml implements BaseController<Order> {
     }
 
     @GetMapping(path = "order/{id}")
-    public Optional<Order> findById(@PathVariable Long id) {
-        orderServiceIml.findById(id);
-        return Optional.empty();
+    public Order findById(@PathVariable Long id) {
+        return orderServiceIml.findById(id).get();
+    }
+
+    @GetMapping(path = "orders")
+    public Iterable<Order> findAll() {
+        return orderServiceIml.findAll();
     }
     @PostMapping(path = "order")
     public <S extends Order> S save( @RequestBody S order) {
@@ -33,11 +37,11 @@ public class OrderControllerIml implements BaseController<Order> {
     @DeleteMapping(path = "order/{id}")
     public boolean delete(@PathVariable Long id) {
         orderServiceIml.delete(id);
-        return false;
+        return true;
     }
     @PatchMapping(path="order")
-    public boolean update(@RequestBody Order order) {
+    public Order update(@RequestBody Order order) {
         orderServiceIml.update(order);
-        return false;
+        return orderServiceIml.findById(order.getOrderId()).get();
     }
 }
