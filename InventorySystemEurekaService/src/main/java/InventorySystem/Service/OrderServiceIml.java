@@ -27,12 +27,10 @@ public class OrderServiceIml implements BasicService<Order>{
         return orderRepository.findAll();
     }
 
-    public boolean save(Order order) {
-        try
-        {
-            orderRepository.save(order);
-            return true;
-        } catch (CacheException e) { return false;}
+    public Order save(Order order) {
+        Order SavedOrder =orderRepository.save(order);
+            return SavedOrder;
+
     }
 
     public boolean delete(Long id) {

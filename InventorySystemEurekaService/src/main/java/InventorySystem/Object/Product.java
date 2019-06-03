@@ -15,7 +15,7 @@ public class Product {
     private int inventoryOnHand;
     private  int minimumRequired;
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name="orderId")
     private  Order productList;
 
     //Default constructor
