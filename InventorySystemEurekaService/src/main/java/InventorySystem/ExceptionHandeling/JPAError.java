@@ -1,4 +1,4 @@
-package inventorysystem.ExceptionHandeling;
+package inventorysystem.exceptionhandeling;
 
 public class JPAError extends Exception{
 

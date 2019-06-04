@@ -1,7 +1,7 @@
-package inventorysystem.ExceptionHandeling;
+package inventorysystem.exceptionhandeling;
 
 public class NotFoundException extends Exception {
-    private String item;
+    private final String item;
 
     public static NotFoundException createWith(String item) {
         return new NotFoundException(item);

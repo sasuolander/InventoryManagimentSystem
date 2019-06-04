@@ -1,6 +1,6 @@
 package inventorysystem.controller;
 
-import inventorysystem.ExceptionHandeling.NotFoundException;
+import inventorysystem.exceptionhandeling.NotFoundException;
 import inventorysystem.object.Order;
 import inventorysystem.object.OrderPOJO;
 import inventorysystem.service.OrderServiceIml;
@@ -47,13 +47,8 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     public HttpStatus save(@RequestBody OrderPOJO orderPOJO) {
         Order order= new Order();
         try {
-            LOGGER.info("OrderPojo" +orderPOJO.getOrderId().toString());
             order.translatePojoToPersistant(orderPOJO);
-            LOGGER.info(order.getFirstName());
-            Order SAvedOrder =orderServiceIml.save(order);
-            LOGGER.info(SAvedOrder.getOrderId().toString());
-
-
+            orderServiceIml.save(order);
             return HttpStatus.OK;
         }catch (Exception e){
             return HttpStatus.INTERNAL_SERVER_ERROR;
@@ -66,8 +61,8 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     }
     @PatchMapping(path="order")
     public Order update(@RequestBody OrderPOJO orderPojo) {
-        Order order = null;
+        Order order = new Order();
         orderServiceIml.update(order.translatePojoToPersistant(orderPojo));
-        return orderServiceIml.findById(order.getOrderId()).get();
+        return orderServiceIml.findById(order.getOrderId()).isPresent().get();
     }
 }

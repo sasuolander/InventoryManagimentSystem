@@ -1,4 +1,4 @@
-package inventorysystem.ExceptionHandeling;
+package inventorysystem.exceptionhandeling;
 
 //404 not found
 //400 bad request

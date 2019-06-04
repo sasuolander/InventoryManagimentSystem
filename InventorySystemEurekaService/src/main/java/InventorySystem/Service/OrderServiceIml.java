@@ -30,7 +30,6 @@ public class OrderServiceIml implements BasicService<Order>{
     public Order save(Order order) {
         Order SavedOrder =orderRepository.save(order);
             return SavedOrder;
-
     }
 
     public boolean delete(Long id) {

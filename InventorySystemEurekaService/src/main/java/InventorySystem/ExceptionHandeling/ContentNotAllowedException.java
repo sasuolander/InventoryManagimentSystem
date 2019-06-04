@@ -1,11 +1,11 @@
-package inventorysystem.ExceptionHandeling;
+package inventorysystem.exceptionhandeling;
 
 import org.springframework.validation.ObjectError;
 
 import java.util.List;
 
 public class ContentNotAllowedException extends Exception {
-    List<ObjectError> errors;
+    private final List<ObjectError> errors;
 
     public static ContentNotAllowedException createWith(List<ObjectError> errors) {
         return new ContentNotAllowedException(errors);
