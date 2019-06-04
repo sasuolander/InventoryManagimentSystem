@@ -29,8 +29,8 @@ insert into order_table (order_id, title, first_name, last_name, number_shipped,
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Starla', 'Dolman', 1, null);
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Blondy', 'Weatherhogg', 29, null);
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Randee', 'Edden', 2, null);
-
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Ester', 'Steers', 51, null);
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Brnaby', 'Iacovaccio', 21, null);
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Sophia', 'Vasyatkin', 99, null);
 insert into order_table (order_id, title, first_name, last_name, number_shipped, order_date) values (hibernate_sequence.NEXTVAL, null, 'Gilberta', 'Smallpiece', 29, null);
+

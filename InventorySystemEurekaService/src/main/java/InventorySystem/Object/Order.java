@@ -33,60 +33,6 @@ public class Order {
     public Order(){
         //Default constructor for hibernate
     }
-    private Order(Builder builder) {
-        orderId = builder.orderId;
-        title = builder.title;
-        firstName = builder.firstName;
-        lastName = builder.lastName;
-        numberShipped = builder.numberShipped;
-        orderDate = builder.orderDate;
-    }
-
-    public static final class Builder {
-        private final Long orderId;
-        private String title;
-        private String firstName;
-        private String lastName;
-        private int numberShipped;
-        private Date orderDate;
-
-        public Builder(Long orderId ) {
-            this.orderId = orderId;
-        }
-
-        public Builder setTitle(String val) {
-            title = val;
-            return this;
-        }
-
-        public Builder setFirstName(String val) {
-            firstName = val;
-            return this;
-        }
-
-        public Builder setLastName(String val) {
-            lastName = val;
-            return this;
-        }
-
-        public Builder setNumberShipped(int val) {
-            numberShipped = val;
-            return this;
-        }
-
-        public Builder setOrderDate(Date val) {
-            orderDate = val;
-            return this;
-        }
-
-        public Order build() {
-            return new Order(this);
-        }
-    }
-
-
-
-
 
     public Long getOrderId() {
         return orderId;

@@ -11,7 +11,6 @@ public class Suppliers {
     private Long supplierId;
     private String supplier;
 
-
     public Suppliers(){
         //Default constructor for hibernate
     }

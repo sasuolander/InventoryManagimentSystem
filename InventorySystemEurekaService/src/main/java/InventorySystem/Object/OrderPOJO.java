@@ -5,18 +5,14 @@ import java.util.Date;
 import java.util.List;
 
 public class OrderPOJO {
-              private Long orderId;
+        private Long orderId;
         private String title;
         private String firstName;
         private  String lastName;
-
-        //https://stackoverflow.com/questions/27987068/spring-boot-hibernate-syntax-error-in-sql-statement
         private  int numberShipped;
-
         private Date orderDate;
-        //Default constructor
-        public OrderPOJO(){
-        }
+        private  List<Product>productList= new ArrayList<>();
+
         private OrderPOJO(Builder builder) {
             orderId = builder.orderId;
             title = builder.title;
