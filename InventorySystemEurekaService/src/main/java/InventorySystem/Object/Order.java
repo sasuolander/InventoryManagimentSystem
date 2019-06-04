@@ -85,6 +85,9 @@ public class Order {
     }
 
 
+
+
+
     public Long getOrderId() {
         return orderId;
     }
@@ -105,7 +108,6 @@ public class Order {
         return productList;
     }
 
-
     public int getNumberShipped() {
         return numberShipped;
     }
@@ -114,10 +116,8 @@ public class Order {
         return orderDate;
     }
 
-
-
     public Order translatePojoToPersistant(OrderPOJO orderPOJO){
-         this.orderId=orderPOJO.getOrderId();
+         //this.orderId=orderPOJO.getOrderId();
           this.title=orderPOJO.getTitle();
          this.firstName=orderPOJO.getFirstName();
          this.lastName=orderPOJO.getLastName();
