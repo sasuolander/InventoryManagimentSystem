@@ -9,6 +9,26 @@ public class PurchasesPOJO {
     private  int numberReceived;
     private  Date purchaseDate;
 
+    public Long getPurchasesId() {
+        return purchasesId;
+    }
+
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public Long getProductId() {
+        return productId;
+    }
+
+    public int getNumberReceived() {
+        return numberReceived;
+    }
+
+    public Date getPurchaseDate() {
+        return purchaseDate;
+    }
+
     private PurchasesPOJO(Builder builder) {
         purchasesId = builder.purchasesId;
         supplierId = builder.supplierId;

@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Suppliers {
+public class Suppliers implements PersistentObject<Suppliers,SuppliersPOJO> {
     @Id
     @GeneratedValue
     private Long supplierId;
@@ -28,4 +28,11 @@ public class Suppliers {
     }
 
     public void setSupplier(String supplier) { this.supplier = supplier; }
+
+
+    public Suppliers translatePojoToPersistent(SuppliersPOJO objectPojo) {
+        this.supplierId=objectPojo.getSupplierId();
+        this.supplier=objectPojo.getSupplier();
+        return this;
+    }
 }

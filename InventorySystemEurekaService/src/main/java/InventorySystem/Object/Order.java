@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "order_table") //Order word is reserved in sql
-public class Order {
+public class Order implements PersistentObject<Order,OrderPOJO>{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
@@ -62,8 +62,8 @@ public class Order {
         return orderDate;
     }
 
-    public Order translatePojoToPersistant(OrderPOJO orderPOJO){
-         //this.orderId=orderPOJO.getOrderId();
+    public Order translatePojoToPersistent(OrderPOJO orderPOJO){
+         this.orderId=orderPOJO.getOrderId();
           this.title=orderPOJO.getTitle();
          this.firstName=orderPOJO.getFirstName();
          this.lastName=orderPOJO.getLastName();

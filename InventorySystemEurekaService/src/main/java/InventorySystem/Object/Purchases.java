@@ -6,7 +6,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Purchases {
+public class Purchases implements PersistentObject<Purchases,PurchasesPOJO>  {
     @Id
     @GeneratedValue
     private  Long purchasesId;
@@ -37,5 +37,15 @@ public class Purchases {
 
     public Date getPurchaseDate() {
         return purchaseDate;
+    }
+
+    @Override
+    public Purchases translatePojoToPersistent(PurchasesPOJO objectPojo) {
+        this.numberReceived=objectPojo.getNumberReceived();
+        this.productId=objectPojo.getProductId();
+        this.purchaseDate=objectPojo.getPurchaseDate();
+        this.supplierId=objectPojo.getSupplierId();
+        this.purchasesId=objectPojo.getPurchasesId();
+        return this;
     }
 }

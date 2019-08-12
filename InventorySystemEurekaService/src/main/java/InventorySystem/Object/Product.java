@@ -3,7 +3,7 @@ package inventorysystem.object;
 import javax.persistence.*;
 
 @Entity
-public class Product {
+public class Product implements PersistentObject<Product,ProductPOJO>  {
 
     @Id
     @GeneratedValue
@@ -49,5 +49,18 @@ public class Product {
 
     public int getMinimumRequired() {
         return minimumRequired;
+    }
+
+
+    public Product translatePojoToPersistent(ProductPOJO objectPojo) {
+        this.inventoryOnHand=objectPojo.getInventoryOnHand();
+        this.minimumRequired=objectPojo.getMinimumRequired();
+        this.partNumber=objectPojo.getPartNumber();
+        this.productId=objectPojo.getProductId();
+        this.productLabel=objectPojo.getProductLabel();
+        this.productList=objectPojo.getProductList();
+        this.productNumber=objectPojo.getProductNumber();
+        this.startingInventory=objectPojo.getStartingInventory();
+        return this;
     }
 }

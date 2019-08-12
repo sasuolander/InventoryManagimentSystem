@@ -10,6 +10,14 @@ public class SuppliersPOJO {
         supplier = builder.supplier;
     }
 
+    public Long getSupplierId() {
+        return supplierId;
+    }
+
+    public String getSupplier() {
+        return supplier;
+    }
+
     public static final class Builder {
         private Long supplierId;
         private String supplier;

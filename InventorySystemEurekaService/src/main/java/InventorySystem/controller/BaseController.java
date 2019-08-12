@@ -13,5 +13,5 @@ public interface BaseController<T,P> {
     T findById(Long id) throws NotFoundException;
       HttpStatus save(P p);
     boolean delete(Long id);
-    T update(P p);
+    T update(P p) throws NotFoundException;
 }

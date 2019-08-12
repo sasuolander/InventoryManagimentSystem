@@ -1,6 +1,7 @@
 package inventorysystem.repositorytest;
 
 import inventorysystem.object.Order;
+import inventorysystem.object.OrderPOJO;
 import inventorysystem.repository.OrderRepository;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -10,9 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
-
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -33,7 +32,8 @@ public class OrderRepositoryTest {
     final String firstName="Tim";
     final String lastName="Tom";
     final String title="More item";
-    Order order = new Order.Builder(1L).setFirstName(firstName).setLastName(lastName).setTitle(title).build();
+    OrderPOJO order2 = new OrderPOJO.Builder(1L).setFirstName(firstName).setLastName(lastName).setTitle(title).build();
+    Order order = new Order().translatePojoToPersistant(order2);
     @BeforeClass
     public static void populateDatabase(){
 
@@ -77,7 +77,7 @@ public class OrderRepositoryTest {
         assertThat(order1).isNotNull();
         assertEquals(title,order1.getTitle());
     }
-
+//id is not static so this test fail
      @Test
     public void deleteById(){
         repository.deleteById(1L);

@@ -60,9 +60,12 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
         return true;
     }
     @PatchMapping(path="order")
-    public Order update(@RequestBody OrderPOJO orderPojo) {
+    public Order update(@RequestBody OrderPOJO orderPojo) throws NotFoundException {
         Order order = new Order();
         orderServiceIml.update(order.translatePojoToPersistant(orderPojo));
-        return orderServiceIml.findById(order.getOrderId()).isPresent().get();
+        if (!orderServiceIml.findById(order.getOrderId()).isPresent()){
+            throw NotFoundException.createWith("Order");
+        }
+        return orderServiceIml.findById(order.getOrderId()).get();
     }
 }
