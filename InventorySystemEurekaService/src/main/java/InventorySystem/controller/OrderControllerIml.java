@@ -47,7 +47,7 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     public HttpStatus save(@RequestBody OrderPOJO orderPOJO) {
         Order order= new Order();
         try {
-            order.translatePojoToPersistant(orderPOJO);
+            order.translatePojoToPersistent(orderPOJO);
             orderServiceIml.save(order);
             return HttpStatus.OK;
         }catch (Exception e){
@@ -57,12 +57,13 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     @DeleteMapping(path = "order/{id}")
     public boolean delete(@PathVariable Long id) {
         orderServiceIml.delete(id);
+
         return true;
     }
     @PatchMapping(path="order")
     public Order update(@RequestBody OrderPOJO orderPojo) throws NotFoundException {
         Order order = new Order();
-        orderServiceIml.update(order.translatePojoToPersistant(orderPojo));
+        orderServiceIml.update(order.translatePojoToPersistent(orderPojo));
         if (!orderServiceIml.findById(order.getOrderId()).isPresent()){
             throw NotFoundException.createWith("Order");
         }

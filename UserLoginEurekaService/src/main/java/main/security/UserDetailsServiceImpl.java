@@ -1,10 +1,9 @@
-package security;
+package main.security;
 
-import object.AppUser;
+import main.object.requestobject.UserRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -22,24 +21,24 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        // hard coding the users. All passwords must be encoded.
-        final List<AppUser> users = Arrays.asList(
-                new AppUser(1L, "omar", encoder.encode("12345"), "USER"),
-                new AppUser(2L, "admin", encoder.encode("12345"), "ADMIN")
+        // hard coding the userRequests. All passwords must be encoded.
+        final List<UserRequest> userRequests = Arrays.asList(
+                new UserRequest(1L, "omar", encoder.encode("12345"), "USER"),
+                new UserRequest(2L, "admin", encoder.encode("12345"), "ADMIN")
         );
 
 
-        for(AppUser appUser: users) {
-            if(appUser.getUsername().equals(username)) {
+        for(UserRequest userRequest : userRequests) {
+            if(userRequest.getUsername().equals(username)) {
 
                 // Remember that Spring needs roles to be in this format: "ROLE_" + userRole (i.e. "ROLE_ADMIN")
                 // So, we need to set it to that format, so we can verify and compare roles (i.e. hasRole("ADMIN")).
                 List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-                        .commaSeparatedStringToAuthorityList("ROLE_" + appUser.getRole());
+                        .commaSeparatedStringToAuthorityList("ROLE_" + userRequest.getRole());
 
-                // The "User" class is provided by Spring and represents a model class for user to be returned by UserDetailsService
-                // And used by auth manager to verify and check user authentication.
-                return new User(appUser.getUsername(), appUser.getPassword(), grantedAuthorities);
+                // The "UserRequest" class is provided by Spring and represents a model class for userRequest to be returned by UserDetailsService
+                // And used by auth manager to verify and check userRequest authentication.
+                return new org.springframework.security.core.userdetails.User(userRequest.getUsername(), userRequest.getPassword(), grantedAuthorities);
             }
         }
 

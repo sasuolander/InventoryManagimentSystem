@@ -62,6 +62,7 @@ public class Order implements PersistentObject<Order,OrderPOJO>{
         return orderDate;
     }
 
+    @Override
     public Order translatePojoToPersistent(OrderPOJO orderPOJO){
          this.orderId=orderPOJO.getOrderId();
           this.title=orderPOJO.getTitle();

@@ -33,7 +33,7 @@ public class OrderRepositoryTest {
     final String lastName="Tom";
     final String title="More item";
     OrderPOJO order2 = new OrderPOJO.Builder(1L).setFirstName(firstName).setLastName(lastName).setTitle(title).build();
-    Order order = new Order().translatePojoToPersistant(order2);
+    Order order = new Order().translatePojoToPersistent(order2);
     @BeforeClass
     public static void populateDatabase(){
 
