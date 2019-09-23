@@ -9,27 +9,30 @@ import java.io.Serializable;
 @Entity
 public class UserEntity implements Serializable {
 
-
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue
-    private long userId;
+    private long Id;
+    @Column(nullable = false)
+    private String userId;
     @Column(nullable = false)
     private String username;
     @Column(nullable = false)
     private String password;
-    private String encruptedPassword;
+    @Column(nullable = false)
+    private String encryptedPassword;
     private String role;
-    @Column(unique = true)
+    @Column(nullable = false,unique = true)
     private String email;
     private String emailVerificationToken;
+    @Column(nullable = false)
     private Boolean emailVerificationStatus=false;
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -50,11 +53,11 @@ public class UserEntity implements Serializable {
     }
 
     public String getEncruptedPassword() {
-        return encruptedPassword;
+        return encryptedPassword;
     }
 
-    public void setEncruptedPassword(String encruptedPassword) {
-        this.encruptedPassword = encruptedPassword;
+    public void setEncruptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
     public String getRole() {
@@ -87,5 +90,13 @@ public class UserEntity implements Serializable {
 
     public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
         this.emailVerificationStatus = emailVerificationStatus;
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public void setId(long id) {
+        Id = id;
     }
 }

@@ -9,12 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("users")
 public class UserController {
 
+    private final UserServiceIml userServiceIml;
+
     @Autowired
-    public UserController(UserServiceIml userService) {
-        this.userService = userService;
+    public UserController(UserServiceIml userServiceIml) {
+        this.userServiceIml = userServiceIml;
     }
 
     @PostMapping
@@ -22,7 +24,7 @@ public class UserController {
         UserResponse returnValue = new UserResponse();
         UserDTO userDTO = new UserDTO();
         BeanUtils.copyProperties(userRequest, userDTO);
-        UserDTO createdUser = userService.createUser(userDTO);
+        UserDTO createdUser = userServiceIml.createUser(userDTO);
         BeanUtils.copyProperties(createdUser, returnValue);
 
         return returnValue;
@@ -30,11 +32,6 @@ public class UserController {
 
     @GetMapping
     public String getUser() {
-        return "";
-    }
-
-    @GetMapping
-    public String getUsers() {
         return "";
     }
 

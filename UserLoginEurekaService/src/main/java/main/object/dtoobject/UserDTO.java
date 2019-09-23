@@ -6,21 +6,24 @@ import java.io.Serializable;
 
 @EqualsAndHashCode
 public class UserDTO implements Serializable {
+
+
     private static final long serialVersionUID=1L;
-    private long userId;
+    private long Id;
+    private String userId;
     private String username;
     private String password;
-    private String encruptedPassword;
+    private String encryptedPassword;
     private String role;
     private String email;
     private String emailVerificationToken;
     private Boolean emailVerificationStatus=false;
 
-    public long getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -41,11 +44,11 @@ public class UserDTO implements Serializable {
     }
 
     public String getEncruptedPassword() {
-        return encruptedPassword;
+        return encryptedPassword;
     }
 
-    public void setEncruptedPassword(String encruptedPassword) {
-        this.encruptedPassword = encruptedPassword;
+    public void setEncruptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
     public String getRole() {
@@ -78,5 +81,13 @@ public class UserDTO implements Serializable {
 
     public void setEmailVerificationStatus(Boolean emailVerificationStatus) {
         this.emailVerificationStatus = emailVerificationStatus;
+    }
+
+    public long getId() {
+        return Id;
+    }
+
+    public void setId(long id) {
+        Id = id;
     }
 }
