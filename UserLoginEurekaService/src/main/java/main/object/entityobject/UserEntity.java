@@ -13,19 +13,19 @@ public class UserEntity implements Serializable {
     @Id
     @GeneratedValue
     private long Id;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String userId;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String username;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String password;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private String encryptedPassword;
     private String role;
-    //@Column(nullable = false,unique = true)
+    @Column(nullable = false,unique = true)
     private String email;
     private String emailVerificationToken;
-    //@Column(nullable = false)
+    @Column(nullable = false)
     private Boolean emailVerificationStatus=false;
 
     public String getUserId() {

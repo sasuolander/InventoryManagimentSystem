@@ -1,6 +1,5 @@
 package main.service;
 
-
 import main.Utils;
 import main.object.dtoobject.UserDTO;
 import main.object.entityobject.UserEntity;
@@ -11,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
 
 @Service
@@ -45,12 +43,8 @@ public class UserServiceIml implements UserServiceInterface {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-
-        UserEntity userEntity =userRepository.findByEmail(email);
-
-        if(userEntity ==null) throw new UsernameNotFoundException(email);
-
-
-        return new User(userEntity.getEmail(),userEntity.getEncryptedPassword(),new ArrayList<>());
+        UserEntity userEntity = userRepository.findByEmail(email);
+        if (userEntity == null) throw new UsernameNotFoundException(email);
+        return new User(userEntity.getEmail(), userEntity.getEncryptedPassword(), new ArrayList<>());
     }
 }
