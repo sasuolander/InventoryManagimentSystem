@@ -1,6 +1,7 @@
 package main.object.dtoobject;
 
 import lombok.EqualsAndHashCode;
+import main.object.entityobject.UserEntity;
 
 import java.io.Serializable;
 
@@ -43,11 +44,11 @@ public class UserDTO implements Serializable {
         this.password = password;
     }
 
-    public String getEncruptedPassword() {
+    public String getEncryptedPassword() {
         return encryptedPassword;
     }
 
-    public void setEncruptedPassword(String encryptedPassword) {
+    public void setEncryptedPassword(String encryptedPassword) {
         this.encryptedPassword = encryptedPassword;
     }
 
@@ -90,4 +91,17 @@ public class UserDTO implements Serializable {
     public void setId(long id) {
         Id = id;
     }
+
+    /*public UserDTO entityToDTO(UserEntity userEntity){
+        this.userId=user;
+        this.username;
+        this.password;
+        this.encryptedPassword;
+        this.role;
+        this.email;
+        this.emailVerificationToken;
+        this.emailVerificationStatus;
+        return this;
+
+    }*/
 }
