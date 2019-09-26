@@ -1,25 +1,29 @@
-package inventorysystem.object;
+package inventorysystem.object.entity;
+
+import inventorysystem.object.PersistentObject;
+import inventorysystem.object.pojo.ProductPOJO;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-public class Product implements PersistentObject<Product,ProductPOJO>  {
+public class Product implements PersistentObject<Product, ProductPOJO> {
 
     @Id
     @GeneratedValue
     private Long productId;
-    private  int productNumber;
-    private  int partNumber;
+    private int productNumber;
+    private int partNumber;
     private String productLabel;
     private int startingInventory;
     private int inventoryOnHand;
-    private  int minimumRequired;
+    private int minimumRequired;
     @ManyToOne
-    @JoinColumn(name="orderId")
-    private  Order productList;
+    @JoinColumn(name = "orderId")
+    private Order order;
 
     //Default constructor
-    public Product(){
+    public Product() {
         //Default constructor for hibernate
     }
 
@@ -53,14 +57,13 @@ public class Product implements PersistentObject<Product,ProductPOJO>  {
 
 
     public Product translatePojoToPersistent(ProductPOJO objectPojo) {
-        this.inventoryOnHand=objectPojo.getInventoryOnHand();
-        this.minimumRequired=objectPojo.getMinimumRequired();
-        this.partNumber=objectPojo.getPartNumber();
-        this.productId=objectPojo.getProductId();
-        this.productLabel=objectPojo.getProductLabel();
-        this.productList=objectPojo.getProductList();
-        this.productNumber=objectPojo.getProductNumber();
-        this.startingInventory=objectPojo.getStartingInventory();
+        this.inventoryOnHand = objectPojo.getInventoryOnHand();
+        this.minimumRequired = objectPojo.getMinimumRequired();
+        this.partNumber = objectPojo.getPartNumber();
+        this.productId = objectPojo.getProductId();
+        this.productLabel = objectPojo.getProductLabel();
+        this.productNumber = objectPojo.getProductNumber();
+        this.startingInventory = objectPojo.getStartingInventory();
         return this;
     }
 }

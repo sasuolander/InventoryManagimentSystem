@@ -1,11 +1,14 @@
-package inventorysystem.object;
+package inventorysystem.object.entity;
+
+import inventorysystem.object.PersistentObject;
+import inventorysystem.object.pojo.SuppliersPOJO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Suppliers implements PersistentObject<Suppliers,SuppliersPOJO> {
+public class Suppliers implements PersistentObject<Suppliers, SuppliersPOJO> {
     @Id
     @GeneratedValue
     private Long supplierId;

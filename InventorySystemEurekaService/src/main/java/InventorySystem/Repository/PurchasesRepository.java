@@ -1,5 +1,5 @@
 package inventorysystem.repository;
-import inventorysystem.object.Purchases;
+import inventorysystem.object.entity.Purchases;
 import org.springframework.stereotype.Repository;
 
 @Repository

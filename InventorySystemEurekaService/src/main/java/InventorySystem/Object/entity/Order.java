@@ -1,4 +1,6 @@
-package inventorysystem.object;
+package inventorysystem.object.entity;
+import inventorysystem.object.pojo.OrderPOJO;
+import inventorysystem.object.PersistentObject;
 import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
@@ -8,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "order_table") //Order word is reserved in sql
-public class Order implements PersistentObject<Order,OrderPOJO>{
+public class  Order implements PersistentObject<Order, OrderPOJO> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
@@ -19,7 +21,7 @@ public class Order implements PersistentObject<Order,OrderPOJO>{
     @Nullable
     private  String lastName;
     @Nullable
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,mappedBy = "productList")
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,mappedBy = "order")
     private  List<Product>productList= new ArrayList<>();
 
     //https://stackoverflow.com/questions/27987068/spring-boot-hibernate-syntax-error-in-sql-statement

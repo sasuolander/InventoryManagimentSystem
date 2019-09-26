@@ -1,7 +1,7 @@
 package inventorysystem.repositorytest;
 
-import inventorysystem.object.Order;
-import inventorysystem.object.OrderPOJO;
+import inventorysystem.object.entity.Order;
+import inventorysystem.object.pojo.OrderPOJO;
 import inventorysystem.repository.OrderRepository;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -32,7 +32,7 @@ public class OrderRepositoryTest {
     final String firstName="Tim";
     final String lastName="Tom";
     final String title="More item";
-    OrderPOJO order2 = new OrderPOJO.Builder(1L).setFirstName(firstName).setLastName(lastName).setTitle(title).build();
+    OrderPOJO order2 = OrderPOJO.Builder().orderId(1L).firstName(firstName).lastName(lastName).title(title).build();
     Order order = new Order().translatePojoToPersistent(order2);
     @BeforeClass
     public static void populateDatabase(){

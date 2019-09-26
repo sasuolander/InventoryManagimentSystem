@@ -1,10 +1,11 @@
 package inventorysystem.controller;
 
 import inventorysystem.exceptionhandeling.NotFoundException;
-import inventorysystem.object.Order;
-import inventorysystem.object.OrderPOJO;
+import inventorysystem.object.entity.Order;
+import inventorysystem.object.pojo.OrderPOJO;
 import inventorysystem.service.OrderServiceIml;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
         this.orderServiceIml = orderServiceIml;
     }
 
+    @ApiOperation(value = "Find order by ID")
     @GetMapping(path = "order/{id}")
     public Order findById(@PathVariable Long id) throws NotFoundException {
         Optional<Order> order= orderServiceIml.findById(id);
@@ -33,6 +35,7 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     return order.get();
     }
 
+    @ApiOperation(value = "Find all orders")
     @GetMapping(path = "orders")
     public Iterable<Order> findAll() throws NotFoundException{
        Iterable<Order> orders= orderServiceIml.findAll();
@@ -42,7 +45,13 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
            throw NotFoundException.createWith("orders");
        }
     }
+    @ApiOperation(value = "Find all orders by defining page size and sorting")
+    @GetMapping(path = "orders/page")
+    public Iterable<Order> findAllPaginationSorting(@RequestParam int pageSize, @RequestParam String sort) throws NotFoundException {
+        return null;
+    }
 
+    @ApiOperation(value = "Create new order")
     @PostMapping(path = "order")
     public HttpStatus save(@RequestBody OrderPOJO orderPOJO) {
         Order order= new Order();
@@ -54,12 +63,13 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
             return HttpStatus.INTERNAL_SERVER_ERROR;
         }
     }
+    @ApiOperation(value = "Remove order")
     @DeleteMapping(path = "order/{id}")
     public boolean delete(@PathVariable Long id) {
         orderServiceIml.delete(id);
-
         return true;
     }
+    @ApiOperation(value = "Update old order")
     @PatchMapping(path="order")
     public Order update(@RequestBody OrderPOJO orderPojo) throws NotFoundException {
         Order order = new Order();

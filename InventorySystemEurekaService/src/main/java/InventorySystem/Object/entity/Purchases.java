@@ -1,4 +1,7 @@
-package inventorysystem.object;
+package inventorysystem.object.entity;
+
+import inventorysystem.object.PersistentObject;
+import inventorysystem.object.pojo.PurchasesPOJO;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -6,7 +9,7 @@ import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
-public class Purchases implements PersistentObject<Purchases,PurchasesPOJO>  {
+public class Purchases implements PersistentObject<Purchases, PurchasesPOJO> {
     @Id
     @GeneratedValue
     private  Long purchasesId;

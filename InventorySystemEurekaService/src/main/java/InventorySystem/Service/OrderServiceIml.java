@@ -1,12 +1,10 @@
 package inventorysystem.service;
 
-import inventorysystem.object.Order;
+import inventorysystem.object.entity.Order;
 import inventorysystem.repository.OrderRepository;
-import org.hibernate.cache.CacheException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service

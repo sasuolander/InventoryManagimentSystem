@@ -1,5 +1,5 @@
 package inventorysystem.repository;
-import inventorysystem.object.Order;
+import inventorysystem.object.entity.Order;
 import org.springframework.stereotype.Repository;
 import java.util.Date;
 

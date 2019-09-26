@@ -53,7 +53,6 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
                 .setExpiration(new Date(System.currentTimeMillis() + SecurityConstant.EXPIRATION_TIME))
                 .signWith(SignatureAlgorithm.HS512, SecurityConstant.JWT_SECRET)
                 .compact();
-
         response.addHeader(SecurityConstant.TOKEN_HEADER, SecurityConstant.TOKEN_PREFIX + token);
 
     }
