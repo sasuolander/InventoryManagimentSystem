@@ -1,6 +1,7 @@
 package inventorysystem.controller;
 
 import inventorysystem.exceptionhandeling.NotFoundException;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -15,5 +16,5 @@ public interface BaseController<T,P> {
     boolean delete(Long id);
     T update(P p) throws NotFoundException;
     Iterable<T> findAll() throws NotFoundException;
-    Iterable<T> findAllPaginationSorting(int pageSize,String sort) throws NotFoundException;
+    Iterable<T> findAllPaginationSorting(int pageNumber,int pageSize) throws NotFoundException;
 }

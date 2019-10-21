@@ -2,8 +2,10 @@ package inventorysystem.object.pojo;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @EqualsAndHashCode
+@ToString
 @Builder(builderClassName = "Builder")
 public class ProductPOJO {
     private Long productId;

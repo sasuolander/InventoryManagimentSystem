@@ -83,7 +83,6 @@ public class OrderRepositoryTest {
         repository.deleteById(1L);
          Optional<Order> order1 = repository.findById(1L);
          assertThat(order1).isEmpty();
-
      }
 
 }

@@ -9,9 +9,12 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.stream.StreamSupport;
 
@@ -47,8 +50,9 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
     }
     @ApiOperation(value = "Find all orders by defining page size and sorting")
     @GetMapping(path = "orders/page")
-    public Iterable<Order> findAllPaginationSorting(@RequestParam int pageSize, @RequestParam String sort) throws NotFoundException {
-        return null;
+    public Iterable<Order> findAllPaginationSorting(@RequestParam int page,@RequestParam int pageSize ) throws NotFoundException {
+        //Iterable<Order> orders;
+        return  orderServiceIml.findAllPage(page,pageSize);
     }
 
     @ApiOperation(value = "Create new order")

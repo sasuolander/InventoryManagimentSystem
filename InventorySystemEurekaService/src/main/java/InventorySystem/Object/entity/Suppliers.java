@@ -2,13 +2,17 @@ package inventorysystem.object.entity;
 
 import inventorysystem.object.PersistentObject;
 import inventorysystem.object.pojo.SuppliersPOJO;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-public class Suppliers implements PersistentObject<Suppliers, SuppliersPOJO> {
+@EqualsAndHashCode
+public class Suppliers implements PersistentObject<Suppliers, SuppliersPOJO>, Serializable {
+    private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue
     private Long supplierId;

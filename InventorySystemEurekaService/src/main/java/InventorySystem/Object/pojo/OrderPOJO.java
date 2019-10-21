@@ -2,12 +2,14 @@ package inventorysystem.object.pojo;
 
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
  @EqualsAndHashCode
+ @ToString
  @Builder(builderMethodName = "Builder")
  public class OrderPOJO {
         private Long orderId;

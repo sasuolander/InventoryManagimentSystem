@@ -3,7 +3,12 @@ package inventorysystem.service;
 import inventorysystem.object.entity.Order;
 import inventorysystem.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+
 
 import java.util.Optional;
 
@@ -23,6 +28,11 @@ public class OrderServiceIml implements BasicService<Order>{
     }
     public Iterable<Order> findAll() {
         return orderRepository.findAll();
+    }
+    public Iterable<Order> findAllPage( int numberPage,int size) {
+
+        Pageable pageConfig= PageRequest.of(numberPage,size);
+        return orderRepository.findAll(pageConfig);
     }
 
     public Order save(Order order) {
