@@ -48,7 +48,7 @@ public class OrderControllerIml implements BaseController<Order,OrderPOJO> {
            throw NotFoundException.createWith("orders");
        }
     }
-    @ApiOperation(value = "Find all orders by defining page size and sorting")
+    @ApiOperation(value = "Find all orders by defining page size")
     @GetMapping(path = "orders/page")
     public Iterable<Order> findAllPaginationSorting(@RequestParam int page,@RequestParam int pageSize ) throws NotFoundException {
         //Iterable<Order> orders;
