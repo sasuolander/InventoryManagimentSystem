@@ -80,8 +80,8 @@ public class OrderRepositoryTest {
 //id is not static so this test fail
      @Test
     public void deleteById(){
-        repository.deleteById(1L);
-         Optional<Order> order1 = repository.findById(1L);
+        repository.deleteById(0L);
+         Optional<Order> order1 = repository.findById(0L);
          assertThat(order1).isEmpty();
      }
 

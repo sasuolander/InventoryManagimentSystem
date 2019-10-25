@@ -23,8 +23,10 @@ public class OrderServiceIml implements BasicService<Order>{
     }
 
     public Optional<Order> findById(Long id) {
-        return
-                orderRepository.findById(id);
+        return orderRepository.findById(id);
+    }
+    public Optional<Order> findByOrderId(Long id) {
+        return orderRepository.findByOrderId(id);
     }
     public Iterable<Order> findAll() {
         return orderRepository.findAll();
@@ -47,7 +49,7 @@ public class OrderServiceIml implements BasicService<Order>{
     //https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
     //https://www.callicoder.com/java-8-optional-tutorial/
     public boolean update(Order order) {
-        Optional<Order> oldOrder = orderRepository.findById(order.getOrderId());
+        Optional<Order> oldOrder = orderRepository.findByOrderId(order.getOrderId());
         if (!oldOrder.isPresent()){return false;}
         orderRepository.save(order);
         return true;

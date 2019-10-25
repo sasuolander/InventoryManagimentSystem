@@ -10,16 +10,25 @@ import java.util.List;
 
 @Entity
 @EqualsAndHashCode
+@Table(name = "product_table")
 public class Product implements PersistentObject<Product, ProductPOJO>, Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue
+    private Long Id;
+    @Column(name = "productId")
     private Long productId;
+    @Column(name = "productNumber")
     private int productNumber;
+    @Column(name = "partNumber")
     private int partNumber;
+    @Column(name = "productLabel")
     private String productLabel;
+    @Column(name = "startingInventory")
     private int startingInventory;
+    @Column(name = "inventoryOnHand")
     private int inventoryOnHand;
+    @Column(name = "minimumRequired")
     private int minimumRequired;
     @ManyToOne
     @JoinColumn(name = "orderId")

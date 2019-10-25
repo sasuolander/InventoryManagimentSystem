@@ -17,13 +17,19 @@ public class  Order implements PersistentObject<Order, OrderPOJO>, Serializable 
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
+    @Column(name = "orderId")
     private Long orderId;
+    @Column(name = "title")
     @Nullable
     private String title;
+    @Column(name = "firstName")
     @Nullable
     private String firstName;
+    @Column(name = "lastName")
     @Nullable
     private  String lastName;
+    @Column(name = "productList")
     @Nullable
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true,mappedBy = "order")
     private  List<Product>productList= new ArrayList<>();
