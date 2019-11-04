@@ -18,8 +18,8 @@ public class  Order implements PersistentObject<Order, OrderPOJO>, Serializable 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long Id;
-    @Column(name = "orderId")
-    private Long orderId;
+    @Column(name = "orderId",unique = true)
+    private String orderId;
     @Column(name = "title")
     @Nullable
     private String title;
@@ -46,7 +46,7 @@ public class  Order implements PersistentObject<Order, OrderPOJO>, Serializable 
         //Default constructor for hibernate
     }
 
-    public Long getOrderId() {
+    public String getOrderId() {
         return orderId;
     }
 

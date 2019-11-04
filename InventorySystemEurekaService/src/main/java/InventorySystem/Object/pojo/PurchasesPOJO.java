@@ -10,21 +10,21 @@ import java.util.Date;
 @ToString
 @Builder(builderClassName = "Builder")
 public class PurchasesPOJO {
-    private  Long purchasesId;
-    private  Long supplierId;
-    private  Long productId;
+    private  String purchasesId;
+    private  String supplierId;
+    private  String productId;
     private  int numberReceived;
     private  Date purchaseDate;
 
-    public Long getPurchasesId() {
+    public String getPurchasesId() {
         return purchasesId;
     }
 
-    public Long getSupplierId() {
+    public String getSupplierId() {
         return supplierId;
     }
 
-    public Long getProductId() {
+    public String getProductId() {
         return productId;
     }
 

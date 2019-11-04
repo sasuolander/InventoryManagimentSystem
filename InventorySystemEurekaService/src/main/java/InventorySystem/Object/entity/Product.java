@@ -16,8 +16,8 @@ public class Product implements PersistentObject<Product, ProductPOJO>, Serializ
     @Id
     @GeneratedValue
     private Long Id;
-    @Column(name = "productId")
-    private Long productId;
+    @Column(name = "productId",unique = true)
+    private String productId;
     @Column(name = "productNumber")
     private int productNumber;
     @Column(name = "partNumber")
@@ -39,7 +39,7 @@ public class Product implements PersistentObject<Product, ProductPOJO>, Serializ
         //Default constructor for hibernate
     }
 
-    public Long getProductId() {
+    public String getProductId() {
         return productId;
     }
 

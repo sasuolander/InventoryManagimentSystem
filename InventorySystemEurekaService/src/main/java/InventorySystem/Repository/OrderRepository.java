@@ -8,8 +8,9 @@ import java.util.Optional;
 // Custom way to make query
 @Repository
 public interface OrderRepository extends MyBaseRepository<Order, Long> {
+    long deleteByOrderId(String id);
 
-    Optional<Order> findByOrderId(Long Id);
+    Optional<Order> findByOrderId(String Id);
     Optional<Order> findByTitle(String title);
     Optional<Order> findByFirstName(String firstName);
     Optional<Order> findByLastName(String lastName);

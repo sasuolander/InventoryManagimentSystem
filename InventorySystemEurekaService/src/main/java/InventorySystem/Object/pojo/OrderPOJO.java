@@ -12,7 +12,7 @@ import java.util.List;
  @ToString
  @Builder(builderMethodName = "Builder")
  public class OrderPOJO {
-        private Long orderId;
+        private String orderId;
         private String title;
         private String firstName;
         private  String lastName;
@@ -20,7 +20,7 @@ import java.util.List;
         private Date orderDate;
         private List<ProductPOJO> productList=new ArrayList<>();
 
-     public Long getOrderId() {
+     public String getOrderId() {
         return orderId;
     }
 

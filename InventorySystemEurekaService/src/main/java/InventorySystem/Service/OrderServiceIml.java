@@ -5,11 +5,8 @@ import inventorysystem.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
-
-
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Service
@@ -25,7 +22,7 @@ public class OrderServiceIml implements BasicService<Order>{
     public Optional<Order> findById(Long id) {
         return orderRepository.findById(id);
     }
-    public Optional<Order> findByOrderId(Long id) {
+    public Optional<Order> findByOrderId(String id) {
         return orderRepository.findByOrderId(id);
     }
     public Iterable<Order> findAll() {
@@ -41,13 +38,12 @@ public class OrderServiceIml implements BasicService<Order>{
         Order SavedOrder =orderRepository.save(order);
             return SavedOrder;
     }
-
-    public boolean delete(Long id) {
-        orderRepository.deleteById(id);
+    @Transactional
+    public boolean delete(String id) {
+        orderRepository.deleteByOrderId(id);
         return true;
     }
-    //https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
-    //https://www.callicoder.com/java-8-optional-tutorial/
+
     public boolean update(Order order) {
         Optional<Order> oldOrder = orderRepository.findByOrderId(order.getOrderId());
         if (!oldOrder.isPresent()){return false;}

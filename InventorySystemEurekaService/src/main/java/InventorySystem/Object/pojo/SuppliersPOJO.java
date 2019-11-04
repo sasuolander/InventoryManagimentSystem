@@ -8,10 +8,10 @@ import lombok.ToString;
 @ToString
 @Builder(builderClassName = "Builder")
 public class SuppliersPOJO {
-    private Long supplierId;
+    private String supplierId;
     private String supplier;
 
-    public Long getSupplierId() {
+    public String getSupplierId() {
         return supplierId;
     }
     public String getSupplier() {

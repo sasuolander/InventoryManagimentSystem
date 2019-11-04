@@ -8,7 +8,7 @@ import lombok.ToString;
 @ToString
 @Builder(builderClassName = "Builder")
 public class ProductPOJO {
-    private Long productId;
+    private String productId;
     private  int productNumber;
     private  int partNumber;
     private String productLabel;
@@ -17,7 +17,7 @@ public class ProductPOJO {
     private  int minimumRequired;
     //private OrderPOJO productList;
 
-    public Long getProductId() {
+    public String getProductId() {
         return productId;
     }
 

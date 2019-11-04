@@ -1,0 +1,43 @@
+package inventorysystem.template;#if(${PACKAGE_NAME}&&${PACKAGE_NAME}!="")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+
+public class $ { NAME}ServiceIml {
+
+private final ${classRepository} ${objectRepository};
+
+@Autowired
+public $ { NAME}(${classRepository} ${objectRepository}){
+this.${objectRepository}=${objectRepository};
+}
+
+public Optional<${objectClass}> findById(Long id){
+return
+${objectRepository}.findById(id);
+}
+public Iterable<${objectClass}> findAll(){
+return ${objectRepository}.findAll();
+}
+public Iterable<${objectClass}> findAllPage(int numberPage,int size){
+
+Pageable pageConfig=PageRequest.of(numberPage,size);
+return ${objectRepository}.findAll(pageConfig);
+}
+
+public ${objectClass}} save(${objectClass} ${objectIntance}){
+${objectClass} Saved${object}=${RepositoryObject}.save(${objectIntance});
+return Saved${object};
+}
+
+public boolean delete(Long id){
+${RepositoryObject}.deleteById(id);
+return true;
+}
+//https://docs.oracle.com/javase/8/docs/api/java/util/Optional.html
+//https://www.callicoder.com/java-8-optional-tutorial/
+public boolean update(${objectClass} ${objectIntance}){
+Optional<${objectClass}> old${object}=${RepositoryObject}.findById(${objectIntance}.getOrderId());
+if(!old${object}.isPresent()){return false;}
+${RepositoryObject}.save(${objectIntance});
+return true;
+}
+}

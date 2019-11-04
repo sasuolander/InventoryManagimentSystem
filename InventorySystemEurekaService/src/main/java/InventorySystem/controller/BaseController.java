@@ -11,9 +11,9 @@ import org.springframework.http.HttpStatus;
  */
 
 public interface BaseController<T,P> {
-    T findById(Long id) throws NotFoundException;
+    T findById(String id) throws NotFoundException;
       HttpStatus save(P p);
-    boolean delete(Long id);
+    boolean delete(String id);
     T update(P p) throws NotFoundException;
     Iterable<T> findAll() throws NotFoundException;
     Iterable<T> findAllPaginationSorting(int pageNumber,int pageSize) throws NotFoundException;
