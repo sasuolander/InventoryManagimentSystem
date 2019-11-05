@@ -6,6 +6,6 @@ import java.util.Optional;
 
 @Repository
 public interface SupplierRepository extends MyBaseRepository<Supplier, Long>  {
-    //Supplier findById(ID id);
-    Optional<Supplier> findBySupplierId(Long Id);
+    long deleteBySupplierId(String id);
+    Optional<Supplier> findBySupplierId(String Id);
 }

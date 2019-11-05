@@ -6,6 +6,6 @@ import java.util.Optional;
 
 @Repository
 public interface PurchaseRepository extends MyBaseRepository<Purchase, Long>  {
-    //Purchaces findById(ID);
-    Optional<Purchase> findByPurchaseId(Long Id);
+    long deleteByPurchaseId(String id);
+    Optional<Purchase> findByPurchaseId(String Id);
 }

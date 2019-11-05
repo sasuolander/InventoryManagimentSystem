@@ -4,8 +4,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Date;
 import java.util.Optional;
 
-// JPA KeyWord system, findBy,countBy,deleteBy,removeBy,
-// Custom way to make query
 @Repository
 public interface OrderRepository extends MyBaseRepository<Order, Long> {
     long deleteByOrderId(String id);

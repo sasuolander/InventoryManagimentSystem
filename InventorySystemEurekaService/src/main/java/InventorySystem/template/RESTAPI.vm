@@ -1,75 +1,71 @@
-package inventorysystem.template;#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
 #parse("File Header.java")
 
 @RestController
 @Api(value = "${SwaggerName}", tags = {"${SwaggerName}"})
-public class ${NAME}ControllerIml implements BaseController<${objectClass},${ObjectPOJO}>{
-##OrderControllerIml
+public class ${NAME}ControllerIml implements BaseController<${objectClass},${objectPOJO}>{
+
 private final ${serviceClass} ${serviceObject};
 
 @Autowired
-public ${NAME}(${serviceClass} ${serviceObject}){
-this.${serviceClass} = ${serviceObject};
+public ${NAME}ControllerIml (${serviceClass} ${serviceObject}){
+    this.${serviceObject} = ${serviceObject};
 }
 
 @ApiOperation(value = "Find ${objectWord} by ID")
 @GetMapping(path = "${objectWord}/{id}")
-public ${objectClass} findById(@PathVariable Long id) throws NotFoundException {
-Optional<${objectClass}> ${objectIntance}= ${serviceObject}.findBy${object}Id(id);
-if(!${objectWord}.isPresent()){ throw  NotFoundException.createWith("${objectWord}"); }
-return ${objectWord}.get();
+public ${objectClass} findById(@PathVariable String id) throws NotFoundException {
+    Optional<${objectClass}> ${objectIntance}= ${serviceObject}.findBy${objectClass}Id(id);
+    if(!${objectIntance}.isPresent()){ throw  NotFoundException.createWith("${objectWord}"); }
+    return ${objectIntance}.get();
 }
 
 @ApiOperation(value = "Find all ${objectWordPlural}")
 @GetMapping(path = "${objectWordPlural}")
-public Iterable<> findAll() throws NotFoundException{
-Iterable<${objectClass} > ${objectWord}= ${serviceObject}.findAll();
-if(0
-<StreamSupport.stream(${objectWord}.spliterator(),false).count()){
-return ${objectWord};
-}else{
-throw NotFoundException.createWith("${objectWordPlural}");
-}
+public Iterable<${objectClass}> findAll() throws NotFoundException{
+    Iterable<${objectClass} > ${objectIntance}= ${serviceObject}.findAll();
+    if(0<StreamSupport.stream(${objectIntance}.spliterator(),false).count()){
+        return ${objectIntance};
+    }else{
+        throw NotFoundException.createWith("${objectWordPlural}");
+    }
 }
 @ApiOperation(value = "Find all ${objectWordPlural} by defining page size")
 @GetMapping(path = "${objectWordPlural}/p")
 public Iterable<${objectClass} > findAllPaginationSorting(@RequestParam int page,@RequestParam int pageSize ) throws NotFoundException {
-Iterable<${objectClass} > ${objectWord}= ${serviceObject}.findAllPage(page,pageSize);
-if(0
-<StreamSupport.stream(${objectWord}.spliterator(),false).count()){
-return ${objectWord};
-}else{
-throw NotFoundException.createWith("${objectWordPlural}");
+    Iterable<${objectClass} > ${objectIntance}= ${serviceObject}.findAllPage(page,pageSize);
+    if(0<StreamSupport.stream(${objectIntance}.spliterator(),false).count()){
+        return ${objectIntance};
+    }else{
+        throw NotFoundException.createWith("${objectWordPlural}");
+    }
 }
 
 @ApiOperation(value = "Create new ${objectWord}")
 @PostMapping(path = "${objectWord}")
-public HttpStatus save(@RequestBody ${ObjectPOJO} ${objectPOJO}) {
-${objectClass} ${objectIntance}= new ${objectClass} ();
-try {
-${objectWord}.translatePojoToPersistent(orderPOJO);
-${serviceObject}.save(${objectIntance});
-return HttpStatus.OK;
-}catch (Exception e){
-return HttpStatus.INTERNAL_SERVER_ERROR;
-}
+public HttpStatus save(@RequestBody ${objectPOJO} ${objectPOJOIntance}) {
+    ${objectClass} ${objectIntance}= new ${objectClass} ();
+    try {
+        ${objectIntance}.translatePojoToPersistent(${objectPOJOIntance});
+        ${serviceObject}.save(${objectIntance});
+        return HttpStatus.OK;
+    }catch (Exception e){
+        return HttpStatus.INTERNAL_SERVER_ERROR;
+    }
 }
 @ApiOperation(value = "Remove ${objectWord}")
 @DeleteMapping(path = "${objectWord}/{id}")
-public boolean delete(@PathVariable Long id) {
-${serviceObject}.delete(id);
-return true;
-}
+public boolean delete(@PathVariable String id) {${serviceObject}.delete(id);return true;}
+
 @ApiOperation(value = "Update old ${objectWord}")
 @PatchMapping(path="${objectWord}")
-public ${objectClass} update(@RequestBody ${ObjectPOJO} ${objectPOJO}) throws NotFoundException {
-${objectClass} ${objectIntance} = new ${objectClass} ();
-${serviceObject}.update(${objectWord}.translatePojoToPersistent(orderPojo));
-if (!${serviceObject}.findById(${objectIntance}.getOrderId()).isPresent()){
-throw NotFoundException.createWith("${objectErrror}" +
-);
-}
-return ${serviceObject}.findById(${objectIntance}.getOrderId()).get();
+public ${objectClass} update(@RequestBody ${objectPOJO} ${objectPOJOIntance}) throws NotFoundException {
+    ${objectClass} ${objectIntance} = new ${objectClass} ();
+    ${serviceObject}.update(${objectIntance}.translatePojoToPersistent(${objectPOJOIntance}));
+    if (!${serviceObject}.findBy${objectClass}Id(${objectIntance}.get${objectClass}Id()).isPresent()){
+        throw NotFoundException.createWith("${objectErrror}"
+    );}
+    return ${serviceObject}.findBy${objectClass}Id(${objectIntance}.get${objectClass}Id()).get();
 }
 
 }

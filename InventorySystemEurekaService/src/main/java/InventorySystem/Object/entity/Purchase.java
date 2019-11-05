@@ -1,7 +1,7 @@
 package inventorysystem.object.entity;
 
 import inventorysystem.object.PersistentObject;
-import inventorysystem.object.pojo.PurchasesPOJO;
+import inventorysystem.object.pojo.PurchasePOJO;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
@@ -11,7 +11,7 @@ import java.util.Date;
 @Entity
 @EqualsAndHashCode
 @Table(name = "purchase_table")
-public class Purchase implements PersistentObject<Purchase, PurchasesPOJO>, Serializable {
+public class Purchase implements PersistentObject<Purchase, PurchasePOJO>, Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue
@@ -52,7 +52,7 @@ public class Purchase implements PersistentObject<Purchase, PurchasesPOJO>, Seri
     }
 
     @Override
-    public Purchase translatePojoToPersistent(PurchasesPOJO objectPojo) {
+    public Purchase translatePojoToPersistent(PurchasePOJO objectPojo) {
         this.numberReceived=objectPojo.getNumberReceived();
         this.productId=objectPojo.getProductId();
         this.purchaseDate=objectPojo.getPurchaseDate();

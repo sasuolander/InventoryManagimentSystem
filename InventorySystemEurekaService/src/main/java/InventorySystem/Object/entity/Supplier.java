@@ -1,7 +1,7 @@
 package inventorysystem.object.entity;
 
 import inventorysystem.object.PersistentObject;
-import inventorysystem.object.pojo.SuppliersPOJO;
+import inventorysystem.object.pojo.SupplierPOJO;
 import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
@@ -10,7 +10,7 @@ import java.io.Serializable;
 @Entity
 @EqualsAndHashCode
 @Table(name = "Supplier_table")
-public class Supplier implements PersistentObject<Supplier, SuppliersPOJO>, Serializable {
+public class Supplier implements PersistentObject<Supplier, SupplierPOJO>, Serializable {
     private static final long serialVersionUID=1L;
     @Id
     @GeneratedValue
@@ -39,7 +39,7 @@ public class Supplier implements PersistentObject<Supplier, SuppliersPOJO>, Seri
     public void setSupplier(String supplier) { this.supplier = supplier; }
 
 
-    public Supplier translatePojoToPersistent(SuppliersPOJO objectPojo) {
+    public Supplier translatePojoToPersistent(SupplierPOJO objectPojo) {
         this.supplierId =objectPojo.getSupplierId();
         this.supplier=objectPojo.getSupplier();
         return this;

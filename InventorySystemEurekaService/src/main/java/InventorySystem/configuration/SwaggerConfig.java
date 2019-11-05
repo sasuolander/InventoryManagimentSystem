@@ -24,10 +24,14 @@ public class SwaggerConfig {
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("inventorysystem.controller"))//endpoints
                 .paths(PathSelectors.any()).build()
-                .apiInfo(apiInfo()).tags(new Tag("Order","Order management"));
+                .apiInfo(apiInfo()).tags(new Tag("Order","Order management"),
+                        new Tag("Product","Product management"),
+                        new Tag("Purchase","Purchase management"),
+                        new Tag("Supplier","Supplier management")
+                );
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("My API").version("0.0.1").build();
+        return new ApiInfoBuilder().title("My API").version("0.2.0").build();
     }
 }
