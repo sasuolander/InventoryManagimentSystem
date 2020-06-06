@@ -1,8 +1,8 @@
 package main.controller;
 
-import main.object.dtoobject.UserDTO;
-import main.object.requestobject.UserRequest;
-import main.object.responseobject.UserResponse;
+import main.object.dto.UserDTO;
+import main.object.request.UserRequest;
+import main.object.response.UserResponse;
 import main.service.UserServiceIml;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;

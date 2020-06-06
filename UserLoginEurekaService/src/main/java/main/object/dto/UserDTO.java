@@ -1,9 +1,8 @@
-package main.object.dtoobject;
+package main.object.dto;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import main.object.entityobject.UserEntity;
 
 import java.io.Serializable;
 

@@ -1,4 +1,4 @@
-package main.object.requestobject;
+package main.object.request;
 
 public class UserRequestSignModel {
     private String password;

@@ -1,4 +1,4 @@
-package main.object.requestobject;
+package main.object.request;
 
 import lombok.Getter;
 import lombok.Setter;

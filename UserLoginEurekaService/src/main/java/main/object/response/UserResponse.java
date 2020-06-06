@@ -1,4 +1,4 @@
-package main.object.responseobject;
+package main.object.response;
 
 import lombok.Getter;
 import lombok.Setter;

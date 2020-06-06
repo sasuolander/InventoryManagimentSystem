@@ -1,8 +1,8 @@
 package main.service;
 
 import main.Utils;
-import main.object.dtoobject.UserDTO;
-import main.object.entityobject.UserEntity;
+import main.object.dto.UserDTO;
+import main.object.entity.UserEntity;
 import main.repository.UserRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.security.core.userdetails.User;

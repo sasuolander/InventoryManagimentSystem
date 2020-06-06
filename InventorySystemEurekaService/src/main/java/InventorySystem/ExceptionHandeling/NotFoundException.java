@@ -13,6 +13,6 @@ public class NotFoundException extends Exception {
 
     @Override
     public String getMessage() {
-        return "Item  '" + item + "' not found";
+        return "Item  " + item + " not found";
     }
 }
