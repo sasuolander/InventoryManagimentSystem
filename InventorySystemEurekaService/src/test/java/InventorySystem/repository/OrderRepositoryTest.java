@@ -1,8 +1,7 @@
-package inventorysystem.repositorytest;
+package inventorysystem.repository;
 
 import inventorysystem.object.entity.Order;
 import inventorysystem.object.pojo.OrderPOJO;
-import inventorysystem.repository.OrderRepository;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -3,7 +3,7 @@ package inventorysystem;
 import static org.assertj.core.api.BDDAssertions.*;
 
 
-import inventorysystem.repositorytest.OrderRepositoryTest;
+import inventorysystem.repository.OrderRepositoryTest;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;

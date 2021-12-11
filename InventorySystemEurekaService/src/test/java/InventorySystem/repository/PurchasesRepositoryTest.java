@@ -1,4 +1,4 @@
-package inventorysystem.repositorytest;
+package inventorysystem.repository;
 
 public class PurchasesRepositoryTest {
 
