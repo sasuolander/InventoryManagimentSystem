@@ -1,12 +1,12 @@
 version: "3.3"
 services:
   postgres:
-    image: postgis/postgis:latest
+    image: postgis/postgis:13
     container_name: 'postgis-digiroad2'
     environment:
-      POSTGRES_USER: digiroad2
-      POSTGRES_PASSWORD: digiroad2
-      POSTGRES_DB: digiroad2
+      POSTGRES_USER: masterUser
+      POSTGRES_PASSWORD: masterUser
+      POSTGRES_DB: masterUser
     volumes:
       - data:/var/lib/postgresql/data
     ports:
